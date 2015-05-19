@@ -68,7 +68,6 @@
                   <Component id="btnVoltarVariaveis" alignment="0" min="-2" pref="98" max="-2" attributes="0"/>
                   <Component id="btnCalcular" alignment="0" min="-2" pref="98" max="-2" attributes="0"/>
                   <Component id="btnLimparVariaveis" alignment="0" min="-2" pref="98" max="-2" attributes="0"/>
-                  <Component id="btnSairVariaveis" alignment="0" min="-2" pref="98" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
@@ -146,8 +145,6 @@
                       <Component id="btnCalcular" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="btnLimparVariaveis" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="btnSairVariaveis" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
@@ -264,14 +261,6 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLimparVariaveisActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="btnSairVariaveis">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Sair"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSairVariaveisActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

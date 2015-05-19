@@ -33,7 +33,6 @@ public class CadastroProjetoGUI extends javax.swing.JFrame {
         jtfResponsavel = new javax.swing.JTextField();
         btnCadastrarProjeto = new javax.swing.JButton();
         btnLimparProjeto = new javax.swing.JButton();
-        btnSairProjeto = new javax.swing.JButton();
         btnVoltarProjeto = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -66,13 +65,6 @@ public class CadastroProjetoGUI extends javax.swing.JFrame {
         btnLimparProjeto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLimparProjetoActionPerformed(evt);
-            }
-        });
-
-        btnSairProjeto.setText("Sair");
-        btnSairProjeto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSairProjetoActionPerformed(evt);
             }
         });
 
@@ -109,8 +101,7 @@ public class CadastroProjetoGUI extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(btnCadastrarProjeto, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 97, Short.MAX_VALUE)
-                            .addComponent(btnLimparProjeto, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnSairProjeto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(btnLimparProjeto, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -135,9 +126,8 @@ public class CadastroProjetoGUI extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(jtfResponsavel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSairProjeto))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jtfResponsavel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         pack();
@@ -146,10 +136,6 @@ public class CadastroProjetoGUI extends javax.swing.JFrame {
     private void jtfNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfNomeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jtfNomeActionPerformed
-
-    private void btnSairProjetoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairProjetoActionPerformed
-        System.exit(0);
-    }//GEN-LAST:event_btnSairProjetoActionPerformed
 
     private void btnLimparProjetoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparProjetoActionPerformed
         jtfNome.setText("");
@@ -219,7 +205,6 @@ public class CadastroProjetoGUI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCadastrarProjeto;
     private javax.swing.JButton btnLimparProjeto;
-    private javax.swing.JButton btnSairProjeto;
     private javax.swing.JButton btnVoltarProjeto;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

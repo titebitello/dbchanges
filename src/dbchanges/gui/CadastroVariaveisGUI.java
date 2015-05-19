@@ -56,7 +56,6 @@ public class CadastroVariaveisGUI extends javax.swing.JFrame {
         btnVoltarVariaveis = new javax.swing.JButton();
         btnCalcular = new javax.swing.JButton();
         btnLimparVariaveis = new javax.swing.JButton();
-        btnSairVariaveis = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -112,13 +111,6 @@ public class CadastroVariaveisGUI extends javax.swing.JFrame {
             }
         });
 
-        btnSairVariaveis.setText("Sair");
-        btnSairVariaveis.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSairVariaveisActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -160,8 +152,7 @@ public class CadastroVariaveisGUI extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnVoltarVariaveis, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnCalcular, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnLimparVariaveis, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSairVariaveis, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnLimparVariaveis, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -222,9 +213,7 @@ public class CadastroVariaveisGUI extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnCalcular)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnLimparVariaveis)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnSairVariaveis)))
+                        .addComponent(btnLimparVariaveis)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -234,10 +223,6 @@ public class CadastroVariaveisGUI extends javax.swing.JFrame {
     private void jtfColunasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfColunasActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jtfColunasActionPerformed
-
-    private void btnSairVariaveisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairVariaveisActionPerformed
-        System.exit(0);
-    }//GEN-LAST:event_btnSairVariaveisActionPerformed
 
     private void btnLimparVariaveisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparVariaveisActionPerformed
         jtfLinhas.setText("");
@@ -329,7 +314,6 @@ public class CadastroVariaveisGUI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCalcular;
     private javax.swing.JButton btnLimparVariaveis;
-    private javax.swing.JButton btnSairVariaveis;
     private javax.swing.JButton btnVoltarVariaveis;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
