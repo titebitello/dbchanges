@@ -1,6 +1,6 @@
-package dbchanges.modelo;
+package dbchanges.dtl;
 
-public class CadastroProjeto {
+public class ProjetoDTO {
     
     Number id;
     String nome;

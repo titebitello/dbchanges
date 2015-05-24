@@ -1,7 +1,7 @@
-package dbchanges.dao;
+package dbchanges.dal;
 
 import dbchanges.factory.ConnectionFactory;
-import dbchanges.modelo.CadastroVariaveis;
+import dbchanges.dtl.VariaveisDTO;
 import java.sql.*;
 import java.sql.PreparedStatement;
 import java.sql.DriverManager;
@@ -29,7 +29,7 @@ public class CadastroVariaveisDAO {
         this.connection = new ConnectionFactory().getConnection();
     }
 
-    public void adiciona(CadastroVariaveis variaveis) {
+    public void adiciona(VariaveisDTO variaveis) {
 
         try {
             String sql_select = "SELECT SQ_HISTORICO.NEXTVAL FROM DUAL ";

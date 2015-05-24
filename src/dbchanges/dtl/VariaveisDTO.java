@@ -1,6 +1,6 @@
-package dbchanges.modelo;
+package dbchanges.dtl;
 
-public class CadastroVariaveis {
+public class VariaveisDTO {
     Number id;
     Number linhas;
     Number colunas;

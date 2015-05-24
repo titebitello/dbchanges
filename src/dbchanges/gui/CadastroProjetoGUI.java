@@ -1,8 +1,8 @@
 package dbchanges.gui;
 
-import dbchanges.dao.CadastroProjetoDAO;
+import dbchanges.dal.CadastroProjetoDAO;
 import javax.swing.JOptionPane;
-import dbchanges.modelo.CadastroProjeto;
+import dbchanges.dtl.ProjetoDTO;
 import oracle.security.o3logon.b;
 
 public class CadastroProjetoGUI extends javax.swing.JFrame {
@@ -144,7 +144,7 @@ public class CadastroProjetoGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLimparProjetoActionPerformed
 
     private void btnCadastrarProjetoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarProjetoActionPerformed
-        CadastroProjeto projeto = new CadastroProjeto();
+        ProjetoDTO projeto = new ProjetoDTO();
         projeto.setNome(jtfNome.getText());
         projeto.setObservacao(jtfObservacao.getText());
         projeto.setResponsavel(jtfResponsavel.getText());

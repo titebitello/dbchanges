@@ -1,16 +1,16 @@
-package dbchanges.modelo;
+package dbchanges.bl;
 
 import Jama.Matrix;
 import Jama.QRDecomposition;
 
-public class MultipleLinearRegression {
+public class MultipleLinearRegressionBOOld {
     private final int N;        // number of 
     private final int p;        // number of dependent variables
     private final Matrix beta;  // regression coefficients
     private double SSE;         // sum of squared
     private double SST;         // sum of squared
 
-    public MultipleLinearRegression(double[][] x, double[] y) {
+    public MultipleLinearRegressionBOOld(double[][] x, double[] y) {
         if (x.length != y.length) throw new RuntimeException("dimensions don't agree");
         N = y.length;
         p = x[0].length;
@@ -59,7 +59,7 @@ public class MultipleLinearRegression {
                          {  1, 160,  23 },
                          {  1, 200,  18 } };
         double[] y = { 243, 483, 508, 1503, 1764, 2129 };
-        MultipleLinearRegression regression = new MultipleLinearRegression(x, y);
+        MultipleLinearRegressionBOOld regression = new MultipleLinearRegressionBOOld(x, y);
 
         System.out.printf("%.2f + %.2f beta1 + %.2f beta2  (R^2 = %.2f)\n", regression.beta(0), regression.beta(1), regression.beta(2), regression.R2());
     }

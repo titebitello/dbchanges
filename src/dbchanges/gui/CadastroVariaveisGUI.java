@@ -5,9 +5,9 @@
  */
 package dbchanges.gui;
 
-import dbchanges.dao.CadastroVariaveisDAO;
+import dbchanges.dal.CadastroVariaveisDAO;
 import javax.swing.JOptionPane;
-import dbchanges.modelo.CadastroVariaveis;
+import dbchanges.dtl.VariaveisDTO;
 
 /**
  *
@@ -242,7 +242,7 @@ public class CadastroVariaveisGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVoltarVariaveisActionPerformed
 
     private void btnCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcularActionPerformed
-        CadastroVariaveis variaveis = new CadastroVariaveis();
+        VariaveisDTO variaveis = new VariaveisDTO();
         variaveis.setLinhas(jtfLinhas.getColumns());
         variaveis.setColunas(jtfColunas.getColumns());
         variaveis.setFks(jtfFks.getColumns());

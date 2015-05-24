@@ -1,7 +1,7 @@
-package dbchanges.dao;
+package dbchanges.dal;
 
 import dbchanges.factory.ConnectionFactory;
-import dbchanges.modelo.CadastroProjeto;
+import dbchanges.dtl.ProjetoDTO;
 import java.sql.*;
 import java.sql.PreparedStatement;
 import java.sql.DriverManager;
@@ -21,7 +21,7 @@ public class CadastroProjetoDAO {
         this.connection = new ConnectionFactory().getConnection();
     }
     
-    public void adiciona(CadastroProjeto projeto){
+    public void adiciona(ProjetoDTO projeto){
             
         try {
             String sql_select = "SELECT SQ_PROJETO.NEXTVAL FROM DUAL ";
