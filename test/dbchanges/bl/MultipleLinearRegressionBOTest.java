@@ -43,7 +43,7 @@ public class MultipleLinearRegressionBOTest {
     public void calcularCoeficientes(){
         MultipleLinearRegressionBO regression = new MultipleLinearRegressionBO();
         List<Double> coeficientes = regression.calcularCoeficientes();
-        Assert.assertTrue(coeficientes.size() == 3);
+        Assert.assertTrue(coeficientes.size() == 11);
         for (Double coeficiente : coeficientes) {
             System.out.println(coeficiente);
         }
