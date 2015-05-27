@@ -47,5 +47,6 @@ public class MultipleLinearRegressionBOTest {
         for (Double coeficiente : coeficientes) {
             System.out.println(coeficiente);
         }
+        System.out.println(coeficientes.get(0));
     }
 }

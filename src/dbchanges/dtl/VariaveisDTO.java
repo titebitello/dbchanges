@@ -1,103 +1,104 @@
 package dbchanges.dtl;
 
 public class VariaveisDTO {
-    Number id;
-    Number linhas;
-    Number colunas;
-    Number fks;
-    Number constraints;
-    Number indices;
-    Number triggers;
-    Number functions;
-    Number views;
-    Number tabelas;
-    Number idprojeto;
-            
-    public Number getId(){
+    Integer id;
+    Integer linhas;
+    Integer colunas;
+    Integer fks;
+    Integer constraints;
+    Integer indices;
+    Integer triggers;
+    Integer functions;
+    Integer views;
+    Integer tabelas;
+    Integer idProjeto;
+
+    public Integer getId() {
         return id;
     }
-    
-    public void setId(){
+
+    public void setId(Integer id) {
         this.id = id;
     }
-    
-    public Number getLinhas(){
+
+    public Integer getLinhas() {
         return linhas;
     }
-    
-    public void setLinhas(Number linhas){
+
+    public void setLinhas(Integer linhas) {
         this.linhas = linhas;
     }
-    
-    public Number getColunas(){
+
+    public Integer getColunas() {
         return colunas;
     }
-    
-    public void setColunas(Number colunas){
+
+    public void setColunas(Integer colunas) {
         this.colunas = colunas;
     }
-    
-    public Number getFks(){
+
+    public Integer getFks() {
         return fks;
     }
-    
-    public void setFks(Number fks){
+
+    public void setFks(Integer fks) {
         this.fks = fks;
     }
-    
-    public Number getConstraints(){
+
+    public Integer getConstraints() {
         return constraints;
     }
-    
-    public void setConstraints(Number constraints){
+
+    public void setConstraints(Integer constraints) {
         this.constraints = constraints;
     }
-    
-    public Number getIndices(){
+
+    public Integer getIndices() {
         return indices;
     }
-    
-    public void setIndices(Number indices){
+
+    public void setIndices(Integer indices) {
         this.indices = indices;
     }
-    
-    public Number getTriggers(){
+
+    public Integer getTriggers() {
         return triggers;
     }
-    
-    public void setTriggers(Number triggers){
+
+    public void setTriggers(Integer triggers) {
         this.triggers = triggers;
     }
-    
-        public Number getFunctions(){
+
+    public Integer getFunctions() {
         return functions;
     }
-    
-    public void setFunctions(Number functions){
+
+    public void setFunctions(Integer functions) {
         this.functions = functions;
     }
-    
-    public Number getViews(){
+
+    public Integer getViews() {
         return views;
     }
-    
-    public void setViews(Number views){
+
+    public void setViews(Integer views) {
         this.views = views;
     }
-    
-    public Number getTabelas(){
+
+    public Integer getTabelas() {
         return tabelas;
     }
-    
-    public void setTabelas(Number tabelas){
+
+    public void setTabelas(Integer tabelas) {
         this.tabelas = tabelas;
     }
-    
-    public Number getIdProjeto(){
-        return idprojeto;
+
+    public Integer getIdProjeto() {
+        return idProjeto;
     }
-    
-    public void setIdProjeto(Number idprojeto){
-        this.idprojeto = idprojeto;
+
+    public void setIdProjeto(Integer idProjeto) {
+        this.idProjeto = idProjeto;
     }
+            
 }

@@ -243,16 +243,16 @@ public class CadastroVariaveisGUI extends javax.swing.JFrame {
 
     private void btnCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcularActionPerformed
         VariaveisDTO variaveis = new VariaveisDTO();
-        variaveis.setLinhas(jtfLinhas.getColumns());
-        variaveis.setColunas(jtfColunas.getColumns());
-        variaveis.setFks(jtfFks.getColumns());
-        variaveis.setConstraints(jtfConstraints.getColumns());
-        variaveis.setIndices(jtfIndices.getColumns());
-        variaveis.setTriggers(jtfTriggers.getColumns());
-        variaveis.setFunctions(jtfFunctions.getColumns());
-        variaveis.setViews(jtfViews.getColumns());
-        variaveis.setTabelas(jtfTabelas.getColumns());
-        variaveis.setIdProjeto(jtfCodigoProjeto.getColumns());
+        variaveis.setLinhas(Integer.parseInt(jtfLinhas.getText()));
+        variaveis.setColunas(Integer.parseInt(jtfColunas.getText()));
+        variaveis.setFks(Integer.parseInt(jtfFks.getText()));
+        variaveis.setConstraints(Integer.parseInt(jtfConstraints.getText()));
+        variaveis.setIndices(Integer.parseInt(jtfIndices.getText()));
+        variaveis.setTriggers(Integer.parseInt(jtfTriggers.getText()));
+        variaveis.setFunctions(Integer.parseInt(jtfFunctions.getText()));
+        variaveis.setViews(Integer.parseInt(jtfViews.getText()));
+        variaveis.setTabelas(Integer.parseInt(jtfTabelas.getText()));
+        variaveis.setIdProjeto(Integer.parseInt(jtfCodigoProjeto.getText()));
 
         if ((jtfLinhas.getText().isEmpty() || jtfColunas.getText().isEmpty() || jtfFks.getText().isEmpty() || jtfConstraints.getText().isEmpty() || jtfIndices.getText().isEmpty()
                 || jtfTriggers.getText().isEmpty() || jtfFunctions.getText().isEmpty() || jtfViews.getText().isEmpty() || jtfViews.getText().isEmpty() || jtfTabelas.getText().isEmpty()

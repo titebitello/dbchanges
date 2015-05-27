@@ -13,53 +13,47 @@ import java.text.SimpleDateFormat;
 public class CadastroVariaveisDAO {
 
     private Connection connection;
-    Number id;
-    Number linhas;
-    Number colunas;
-    Number fks;
-    Number constraints;
-    Number indices;
-    Number triggers;
-    Number functions;
-    Number views;
-    Number tabelas;
-    Number idprojeto;
 
     public CadastroVariaveisDAO() {
         this.connection = new ConnectionFactory().getConnection();
     }
 
     public void adiciona(VariaveisDTO variaveis) {
-
+       Statement stmt = null;
+       PreparedStatement prepareStatement = null;
+       int id = 0;
+       
         try {
             String sql_select = "SELECT SQ_HISTORICO.NEXTVAL FROM DUAL ";
-            PreparedStatement stmt = connection.prepareStatement(sql_select);
-            stmt = connection.prepareStatement(sql_select);
-            stmt.execute();
-            ResultSet rs = stmt.getResultSet();
+            stmt = connection.createStatement();
+            ResultSet rs = stmt.executeQuery(sql_select);
             if (rs.next()) {
                 id = rs.getInt(1);
             }
             
-            String sql = "INSERT INTO historico (id_historico, linhas, colunas, fks, constraints2, index2, trigger2, function2, view2, tabela, prj_id) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
-            stmt = connection.prepareStatement(sql);
-            stmt.setInt(1, (int) id);
-            stmt.setInt(2, (int) variaveis.getLinhas());
-            stmt.setInt(3, (int) variaveis.getColunas());
-            stmt.setInt(4, (int) variaveis.getFks());
-            stmt.setInt(5, (int) variaveis.getConstraints());
-            stmt.setInt(6, (int) variaveis.getIndices());
-            stmt.setInt(7, (int) variaveis.getTriggers());
-            stmt.setInt(8, (int) variaveis.getFunctions());
-            stmt.setInt(9, (int) variaveis.getViews());
-            stmt.setInt(10, (int) variaveis.getTabelas());
-            stmt.setInt(11, (int) variaveis.getIdProjeto());
-            stmt.executeUpdate();
+            String sql = "INSERT INTO historico (id_historico, linhas, colunas, fks, constraints2, index2, trigger2, function2, view2, tabela, prj_id, tempoestimado) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
+            prepareStatement = connection.prepareStatement(sql);
+            prepareStatement.setInt(1, id);
+            prepareStatement.setInt(2, variaveis.getLinhas());
+            prepareStatement.setInt(3, variaveis.getColunas());
+            prepareStatement.setInt(4, variaveis.getFks());
+            prepareStatement.setInt(5, variaveis.getConstraints());
+            prepareStatement.setInt(6, variaveis.getIndices());
+            prepareStatement.setInt(7, variaveis.getTriggers());
+            prepareStatement.setInt(8, variaveis.getFunctions());
+            prepareStatement.setInt(9, variaveis.getViews());
+            prepareStatement.setInt(10, variaveis.getTabelas());
+            prepareStatement.setInt(11, variaveis.getIdProjeto());
+            prepareStatement.setInt(12, 10);
+            prepareStatement.executeUpdate();
+            //connection.commit();
+            prepareStatement.close();
             stmt.close();
+            rs.close();
 
         } catch (SQLException u) {
             throw new RuntimeException(u);
-        }
+        } 
     }
 
 }
