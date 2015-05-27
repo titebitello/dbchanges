@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package dbchanges.bl;
 
 import Jama.Matrix;
@@ -13,16 +8,12 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- * @author Facensa
- */
 public class MultipleLinearRegressionBO {
 
     private final CadastroHistoricoDAO historicoDAO;
-    private int N;        // number of 
-    private int p;        // number of dependent variables
-    private Matrix beta;  // regression coefficients
+    private int N;              // number of 
+    private int p;              // number of dependent variables
+    private Matrix beta;        // regression coefficients
     private double SSE;         // sum of squared
     private double SST;
 
@@ -59,14 +50,14 @@ public class MultipleLinearRegressionBO {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        
-       double[][] x = { {  1,  10,  20 },
-                         {  1,  20,  40 },
-                         {  1,  40,  15 },
-                         {  1,  80, 100 },
-                         {  1, 160,  23 },
-                         {  1, 200,  18 } };
-        
+
+        double[][] x = {{1, 10, 20},
+        {1, 20, 40},
+        {1, 40, 15},
+        {1, 80, 100},
+        {1, 160, 23},
+        {1, 200, 18}};
+
         return matriz;
     }
 
@@ -123,9 +114,8 @@ public class MultipleLinearRegressionBO {
         Matrix residuals = X.times(beta).minus(Y);
         SSE = residuals.norm2() * residuals.norm2();
 
-        
         List<Double> coeficientes = new ArrayList<Double>();
-        for(int i = 0; i <=10; ++i){
+        for (int i = 0; i <= 10; ++i) {
             Double coeificiente = beta(i);
             coeficientes.add(coeificiente);
         }
@@ -139,5 +129,4 @@ public class MultipleLinearRegressionBO {
     public double R2() {
         return 1.0 - SSE / SST;
     }
-
 }
