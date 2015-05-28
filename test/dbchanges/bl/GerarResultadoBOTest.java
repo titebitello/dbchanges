@@ -1,30 +1,46 @@
 package dbchanges.bl;
 
 import dbchanges.dtl.VariaveisDTO;
+import java.util.ArrayList;
 import java.util.List;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class GerarResultadoBOTest {
-    
+
     @Test
-    public void Calcular(){
-        MultipleLinearRegressionBO regression = new MultipleLinearRegressionBO();
-        List<Double> coeficientes = regression.calcularCoeficientes();
+    public void Calcular() {
+        List<Double> coeficientes = new ArrayList();
+        for (int i = 0; i <= 10; ++i) {
+            Double coeficiente = new Double(1);
+            coeficientes.add(coeficiente);
+        }
 
         VariaveisDTO variaveis = new VariaveisDTO();
         
-        double tempo = coeficientes.get(0)
-                + variaveis.getLinhas() * coeficientes.get(1)
-                + variaveis.getColunas() * coeficientes.get(2)
-                + variaveis.getFks() * coeficientes.get(3)
-                + variaveis.getConstraints() * coeficientes.get(4)
-                + variaveis.getIndices() * coeficientes.get(5)
-                + variaveis.getTriggers() * coeficientes.get(6)
-                + variaveis.getFunctions() * coeficientes.get(7)
-                + variaveis.getViews() * coeficientes.get(8)
-                + variaveis.getTabelas() * coeficientes.get(9)
-                + coeficientes.get(10);
+        variaveis.setLinhas(100);
+        variaveis.setColunas(100);
+        variaveis.setFks(100);
+        variaveis.setConstraints(100);
+        variaveis.setIndices(100);
+        variaveis.setTriggers(100);
+        variaveis.setFunctions(100);
+        variaveis.setViews(100);
+        variaveis.setTabelas(100);
+        
+        
+        GerarResultadoBO tempo = new GerarResultadoBO();
+        tempo = coeficientes 
+                + variaveis.setLinhas() *  coeficientes
+                + variaveis.setColunas(1) * coeficientes
+                + variaveis.setFks(1) * coeficientes
+                + variaveis.setConstraints(1) * coeficientes
+                + variaveis.setIndices(1) * coeficientes
+                + variaveis.setTriggers(1) * coeficientes
+                + variaveis.setFunctions(1) * coeficientes
+                + variaveis.setViews(1) * coeficientes
+                + variaveis.setTabelas(1) * coeficientes
+                + coeficientes;
         System.out.println(tempo);
+        }
     }
-}

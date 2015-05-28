@@ -41,6 +41,7 @@ public class CadastroProjetoDAO {
            stmt.setString(4, projeto.getResponsavel());
            stmt.executeUpdate();
            stmt.close();
+           rs.close();
 
         } catch (SQLException u) {
             throw new RuntimeException(u);

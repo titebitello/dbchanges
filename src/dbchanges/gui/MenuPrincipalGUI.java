@@ -95,7 +95,7 @@ public class MenuPrincipalGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnPrincipalCadastroProjetoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrincipalCadastroProjetoActionPerformed
-        CadastroProjetoGUI b = new  CadastroProjetoGUI();
+        CadastroProjetosGUI b = new  CadastroProjetosGUI();
         b.setVisible(true);
     }//GEN-LAST:event_btnPrincipalCadastroProjetoActionPerformed
 

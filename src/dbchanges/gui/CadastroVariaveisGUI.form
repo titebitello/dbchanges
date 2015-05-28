@@ -24,7 +24,7 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
-              <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Group type="102" attributes="0">
                       <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -50,16 +50,16 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jtfConstraints" alignment="0" min="-2" pref="32" max="-2" attributes="0"/>
-                          <Component id="jtfIndices" alignment="0" min="-2" pref="32" max="-2" attributes="0"/>
-                          <Component id="jtfTriggers" alignment="0" min="-2" pref="32" max="-2" attributes="0"/>
-                          <Component id="jtfFunctions" alignment="0" min="-2" pref="32" max="-2" attributes="0"/>
-                          <Component id="jtfViews" alignment="0" min="-2" pref="32" max="-2" attributes="0"/>
-                          <Component id="jtfTabelas" alignment="0" min="-2" pref="32" max="-2" attributes="0"/>
-                          <Component id="jtfCodigoProjeto" alignment="0" min="-2" pref="32" max="-2" attributes="0"/>
-                          <Component id="jtfLinhas" alignment="0" min="-2" pref="32" max="-2" attributes="0"/>
-                          <Component id="jtfColunas" alignment="0" min="-2" pref="32" max="-2" attributes="0"/>
-                          <Component id="jtfFks" alignment="0" min="-2" pref="32" max="-2" attributes="0"/>
+                          <Component id="jtfLinhas" max="32767" attributes="0"/>
+                          <Component id="jtfColunas" alignment="0" max="32767" attributes="0"/>
+                          <Component id="jtfFks" alignment="0" max="32767" attributes="0"/>
+                          <Component id="jtfConstraints" alignment="0" max="32767" attributes="0"/>
+                          <Component id="jtfIndices" alignment="0" max="32767" attributes="0"/>
+                          <Component id="jtfTriggers" alignment="0" max="32767" attributes="0"/>
+                          <Component id="jtfFunctions" alignment="0" max="32767" attributes="0"/>
+                          <Component id="jtfViews" alignment="0" max="32767" attributes="0"/>
+                          <Component id="jtfTabelas" max="32767" attributes="0"/>
+                          <Component id="jtfCodigoProjeto" alignment="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -217,27 +217,67 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jtfLinhas">
+      <Properties>
+        <Property name="horizontalAlignment" type="int" value="0"/>
+        <Property name="text" type="java.lang.String" value="0"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jtfColunas">
+      <Properties>
+        <Property name="horizontalAlignment" type="int" value="0"/>
+        <Property name="text" type="java.lang.String" value="0"/>
+      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jtfColunasActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="jtfFks">
+      <Properties>
+        <Property name="horizontalAlignment" type="int" value="0"/>
+        <Property name="text" type="java.lang.String" value="0"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jtfConstraints">
+      <Properties>
+        <Property name="horizontalAlignment" type="int" value="0"/>
+        <Property name="text" type="java.lang.String" value="0"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jtfIndices">
+      <Properties>
+        <Property name="horizontalAlignment" type="int" value="0"/>
+        <Property name="text" type="java.lang.String" value="0"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jtfTriggers">
+      <Properties>
+        <Property name="horizontalAlignment" type="int" value="0"/>
+        <Property name="text" type="java.lang.String" value="0"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jtfFunctions">
+      <Properties>
+        <Property name="horizontalAlignment" type="int" value="0"/>
+        <Property name="text" type="java.lang.String" value="0"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jtfViews">
+      <Properties>
+        <Property name="horizontalAlignment" type="int" value="0"/>
+        <Property name="text" type="java.lang.String" value="0"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jtfTabelas">
+      <Properties>
+        <Property name="horizontalAlignment" type="int" value="0"/>
+        <Property name="text" type="java.lang.String" value="0"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jtfCodigoProjeto">
+      <Properties>
+        <Property name="horizontalAlignment" type="int" value="0"/>
+        <Property name="text" type="java.lang.String" value="0"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="btnVoltarVariaveis">
       <Properties>

@@ -84,11 +84,40 @@ public class CadastroVariaveisGUI extends javax.swing.JFrame {
 
         jLabel12.setText("Código do projeto");
 
+        jtfLinhas.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jtfLinhas.setText("0");
+
+        jtfColunas.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jtfColunas.setText("0");
         jtfColunas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jtfColunasActionPerformed(evt);
             }
         });
+
+        jtfFks.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jtfFks.setText("0");
+
+        jtfConstraints.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jtfConstraints.setText("0");
+
+        jtfIndices.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jtfIndices.setText("0");
+
+        jtfTriggers.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jtfTriggers.setText("0");
+
+        jtfFunctions.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jtfFunctions.setText("0");
+
+        jtfViews.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jtfViews.setText("0");
+
+        jtfTabelas.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jtfTabelas.setText("0");
+
+        jtfCodigoProjeto.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jtfCodigoProjeto.setText("0");
 
         btnVoltarVariaveis.setText("Voltar");
         btnVoltarVariaveis.addActionListener(new java.awt.event.ActionListener() {
@@ -116,7 +145,7 @@ public class CadastroVariaveisGUI extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(10, 10, 10)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -138,16 +167,16 @@ public class CadastroVariaveisGUI extends javax.swing.JFrame {
                             .addComponent(jLabel5))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jtfConstraints, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jtfIndices, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jtfTriggers, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jtfFunctions, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jtfViews, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jtfTabelas, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jtfCodigoProjeto, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jtfLinhas, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jtfColunas, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jtfFks, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(jtfLinhas)
+                            .addComponent(jtfColunas)
+                            .addComponent(jtfFks)
+                            .addComponent(jtfConstraints)
+                            .addComponent(jtfIndices)
+                            .addComponent(jtfTriggers)
+                            .addComponent(jtfFunctions)
+                            .addComponent(jtfViews)
+                            .addComponent(jtfTabelas)
+                            .addComponent(jtfCodigoProjeto))))
                 .addGap(41, 41, 41)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnVoltarVariaveis, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)

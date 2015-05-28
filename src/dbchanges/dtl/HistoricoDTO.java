@@ -1,14 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package dbchanges.dtl;
 
-/**
- *
- * @author Facensa
- */
 public class HistoricoDTO {
 
     private int linhas;
@@ -27,16 +18,16 @@ public class HistoricoDTO {
         return linhas;
     }
 
+    public void setLinhas(int linhas) {
+        this.linhas = linhas;
+    }
+    
     public int getTempoEstimado() {
         return tempoEstimado;
     }
 
     public void setTempoEstimado(int tempoEstimado) {
         this.tempoEstimado = tempoEstimado;
-    }
-
-    public void setLinhas(int linhas) {
-        this.linhas = linhas;
     }
 
     public int getColunas() {
