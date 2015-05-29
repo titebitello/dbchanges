@@ -3,6 +3,7 @@ package dbchanges.bl;
 import dbchanges.dtl.VariaveisDTO;
 import java.util.ArrayList;
 import java.util.List;
+import junit.framework.Assert;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -29,18 +30,8 @@ public class GerarResultadoBOTest {
         variaveis.setTabelas(100);
         
         
-        GerarResultadoBO tempo = new GerarResultadoBO();
-        tempo = coeficientes 
-                + variaveis.setLinhas() *  coeficientes
-                + variaveis.setColunas(1) * coeficientes
-                + variaveis.setFks(1) * coeficientes
-                + variaveis.setConstraints(1) * coeficientes
-                + variaveis.setIndices(1) * coeficientes
-                + variaveis.setTriggers(1) * coeficientes
-                + variaveis.setFunctions(1) * coeficientes
-                + variaveis.setViews(1) * coeficientes
-                + variaveis.setTabelas(1) * coeficientes
-                + coeficientes;
-        System.out.println(tempo);
+        GerarResultadoBO resultado = new GerarResultadoBO();
+            float tempo = resultado.calcularTempo(coeficientes, variaveis);
+            Assert.assertEquals(902.00f, tempo);
         }
     }

@@ -5,9 +5,12 @@
  */
 package dbchanges.gui;
 
+import dbchanges.bl.GerarResultadoBO;
+import dbchanges.bl.MultipleLinearRegressionBO;
 import dbchanges.dal.CadastroVariaveisDAO;
 import javax.swing.JOptionPane;
 import dbchanges.dtl.VariaveisDTO;
+import java.util.List;
 
 /**
  *
@@ -282,7 +285,13 @@ public class CadastroVariaveisGUI extends javax.swing.JFrame {
         variaveis.setViews(Integer.parseInt(jtfViews.getText()));
         variaveis.setTabelas(Integer.parseInt(jtfTabelas.getText()));
         variaveis.setIdProjeto(Integer.parseInt(jtfCodigoProjeto.getText()));
+        
+        MultipleLinearRegressionBO coeficientes = new MultipleLinearRegressionBO();
+        GerarResultadoBO tempo = new GerarResultadoBO();
+        tempo.calcularTempo((List<Double>) coeficientes, variaveis);
 
+        System.out.println(tempo);        
+        
         if ((jtfLinhas.getText().isEmpty() || jtfColunas.getText().isEmpty() || jtfFks.getText().isEmpty() || jtfConstraints.getText().isEmpty() || jtfIndices.getText().isEmpty()
                 || jtfTriggers.getText().isEmpty() || jtfFunctions.getText().isEmpty() || jtfViews.getText().isEmpty() || jtfViews.getText().isEmpty() || jtfTabelas.getText().isEmpty()
                 || jtfCodigoProjeto.getText().isEmpty())) {
