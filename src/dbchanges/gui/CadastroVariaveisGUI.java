@@ -288,10 +288,10 @@ public class CadastroVariaveisGUI extends javax.swing.JFrame {
         
         MultipleLinearRegressionBO coeficientes = new MultipleLinearRegressionBO();
         GerarResultadoBO tempo = new GerarResultadoBO();
-        tempo.calcularTempo((List<Double>) coeficientes, variaveis);
+        Float resultado = tempo.calcularTempo(coeficientes.calcularCoeficientes(), variaveis);
 
-        System.out.println(tempo);        
-        
+        System.out.println("resultado: " + resultado);        
+   
         if ((jtfLinhas.getText().isEmpty() || jtfColunas.getText().isEmpty() || jtfFks.getText().isEmpty() || jtfConstraints.getText().isEmpty() || jtfIndices.getText().isEmpty()
                 || jtfTriggers.getText().isEmpty() || jtfFunctions.getText().isEmpty() || jtfViews.getText().isEmpty() || jtfViews.getText().isEmpty() || jtfTabelas.getText().isEmpty()
                 || jtfCodigoProjeto.getText().isEmpty())) {
