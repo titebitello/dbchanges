@@ -12,6 +12,15 @@ public class VariaveisDTO {
     Integer views;
     Integer tabelas;
     Integer idProjeto;
+    Float tempoEstimado;
+
+    public Float getTempoEstimado() {
+        return tempoEstimado;
+    }
+
+    public void setTempoEstimado(Float tempoEstimado) {
+        this.tempoEstimado = tempoEstimado;
+    }
 
     public Integer getId() {
         return id;

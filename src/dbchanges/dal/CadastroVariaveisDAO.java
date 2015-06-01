@@ -44,9 +44,8 @@ public class CadastroVariaveisDAO {
             prepareStatement.setInt(9, variaveis.getViews());
             prepareStatement.setInt(10, variaveis.getTabelas());
             prepareStatement.setInt(11, variaveis.getIdProjeto());
-            prepareStatement.setInt(12, 10);
+            prepareStatement.setFloat(12, variaveis.getTempoEstimado());
             prepareStatement.executeUpdate();
-            //connection.commit();
             prepareStatement.close();
             stmt.close();
             rs.close();

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package dbchanges.gui;
 
 import dbchanges.bl.GerarResultadoBO;
@@ -289,8 +284,9 @@ public class CadastroVariaveisGUI extends javax.swing.JFrame {
         MultipleLinearRegressionBO coeficientes = new MultipleLinearRegressionBO();
         GerarResultadoBO tempo = new GerarResultadoBO();
         Float resultado = tempo.calcularTempo(coeficientes.calcularCoeficientes(), variaveis);
-
-        System.out.println("resultado: " + resultado);        
+        variaveis.setTempoEstimado(resultado);
+        
+        //System.out.println("resultado: " + resultado);        
    
         if ((jtfLinhas.getText().isEmpty() || jtfColunas.getText().isEmpty() || jtfFks.getText().isEmpty() || jtfConstraints.getText().isEmpty() || jtfIndices.getText().isEmpty()
                 || jtfTriggers.getText().isEmpty() || jtfFunctions.getText().isEmpty() || jtfViews.getText().isEmpty() || jtfViews.getText().isEmpty() || jtfTabelas.getText().isEmpty()
@@ -299,7 +295,7 @@ public class CadastroVariaveisGUI extends javax.swing.JFrame {
         } else {
             CadastroVariaveisDAO dao = new CadastroVariaveisDAO();
             dao.adiciona(variaveis);
-            JOptionPane.showMessageDialog(null, "Variáveis cadastradas com sucesso! ");
+            JOptionPane.showMessageDialog(null, "Tempo estimado: " + resultado + " minutos");
 
             jtfLinhas.setText("");
             jtfColunas.setText("");
