@@ -2,7 +2,7 @@ package dbchanges.dtl;
 
 public class ConsultaHistoricosDTO {
     private int id;
-    private char projeto;
+    private String projeto;
 
     public int getId() {
         return id;
@@ -12,11 +12,15 @@ public class ConsultaHistoricosDTO {
         this.id = id;
     }
 
-    public char getProjeto() {
+    public String getProjeto(){
         return projeto;
     }
-
-    public void setProjeto(char projeto) {
+    
+    public void setProjeto(String projeto){
         this.projeto = projeto;
     }
+    
+    @Override public String toString() {  
+        return getProjeto();      
+    }  
 }

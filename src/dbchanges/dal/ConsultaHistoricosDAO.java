@@ -7,6 +7,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ConsultaHistoricosDAO {
 
@@ -16,22 +18,28 @@ public class ConsultaHistoricosDAO {
         this.connection = new ConnectionFactory().getConnection();
     }
 
-    public void atualizaComboBox(ConsultaHistoricosDTO projeto) {
-        Statement stmt = null;
-        int id = 0;
-        try {
-            String sql_select = "SELECT PRJ_NOME FROM PROJETO ORDER BY PRJ_NOME ";
-            stmt = connection.createStatement();
-            ResultSet rs = stmt.executeQuery(sql_select);
-            
-            if (rs.next()) {
-                id = rs.getInt(1);
-            }
-            stmt.close();
-            rs.close();
+    public List<ConsultaHistoricosDTO> recuperarProjetosPorNome(String nome) throws SQLException {
+        String sql_select = "SELECT PRJ_NOME FROM PROJETO ORDER BY PRJ_NOME ";
+        PreparedStatement statementSelect = connection.prepareStatement(sql_select);
+        ResultSet rs = statementSelect.executeQuery();
 
-        } catch (SQLException u) {
-            throw new RuntimeException(u);
+        List<ConsultaHistoricosDTO> projeto = new ArrayList<ConsultaHistoricosDTO>();
+        while (rs.next()) {
+            projeto.add(recuperarObjeto(rs));
         }
+        rs.close();
+        statementSelect.close();
+        return projeto;
+        
+        
+
+    private ConsultaHistoricosDTO recuperarObjeto(ResultSet rs) throws SQLException {
+
+        ConsultaHistoricosDTO projeto = new ConsultaHistoricosDTO();
+        projeto.setId(rs.getInt("id"));
+        projeto.setProjeto(rs.getString("projeto"));
+
+        return projeto;
     }
+}
 }

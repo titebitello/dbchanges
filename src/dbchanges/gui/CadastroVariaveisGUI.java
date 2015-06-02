@@ -58,7 +58,7 @@ public class CadastroVariaveisGUI extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel1.setText("Cadastro de Variáveis");
+        jLabel1.setText("Calcular Estimativa");
 
         jLabel2.setText("Informe os valores para cada variável");
 
