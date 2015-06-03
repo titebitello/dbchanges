@@ -53,6 +53,11 @@ public class MenuPrincipalGUI extends javax.swing.JFrame {
         });
 
         btnPrincipalHistoricos.setText("Ver Históricos");
+        btnPrincipalHistoricos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPrincipalHistoricosActionPerformed(evt);
+            }
+        });
 
         btnPrincipalSair.setText("Sair");
         btnPrincipalSair.addActionListener(new java.awt.event.ActionListener() {
@@ -107,6 +112,11 @@ public class MenuPrincipalGUI extends javax.swing.JFrame {
     private void btnPrincipalSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrincipalSairActionPerformed
         System.exit(0);
     }//GEN-LAST:event_btnPrincipalSairActionPerformed
+
+    private void btnPrincipalHistoricosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrincipalHistoricosActionPerformed
+        ConsultaHistoricosGUI d = new ConsultaHistoricosGUI();
+        d.setVisible(true);
+    }//GEN-LAST:event_btnPrincipalHistoricosActionPerformed
 
     /**
      * @param args the command line arguments

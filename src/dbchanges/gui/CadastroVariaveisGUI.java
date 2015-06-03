@@ -297,16 +297,16 @@ public class CadastroVariaveisGUI extends javax.swing.JFrame {
             dao.adiciona(variaveis);
             JOptionPane.showMessageDialog(null, "Tempo estimado: " + resultado + " minutos");
 
-            jtfLinhas.setText("");
-            jtfColunas.setText("");
-            jtfFks.setText("");
-            jtfConstraints.setText("");
-            jtfIndices.setText("");
-            jtfTriggers.setText("");
-            jtfFunctions.setText("");
-            jtfViews.setText("");
-            jtfTabelas.setText("");
-            jtfCodigoProjeto.setText("");
+            jtfLinhas.setText("0");
+            jtfColunas.setText("0");
+            jtfFks.setText("0");
+            jtfConstraints.setText("0");
+            jtfIndices.setText("0");
+            jtfTriggers.setText("0");
+            jtfFunctions.setText("0");
+            jtfViews.setText("0");
+            jtfTabelas.setText("0");
+            jtfCodigoProjeto.setText("0");
         }
     }//GEN-LAST:event_btnCalcularActionPerformed
 
