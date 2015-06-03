@@ -100,12 +100,12 @@ public class MenuPrincipalGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnPrincipalCadastroProjetoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrincipalCadastroProjetoActionPerformed
-        CadastroProjetosGUI b = new  CadastroProjetosGUI();
+        ProjetosGUI b = new  ProjetosGUI();
         b.setVisible(true);
     }//GEN-LAST:event_btnPrincipalCadastroProjetoActionPerformed
 
     private void btnPrincipalCalcularEstimativaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrincipalCalcularEstimativaActionPerformed
-        CadastroVariaveisGUI c = new CadastroVariaveisGUI();
+        VariaveisGUI c = new VariaveisGUI();
         c.setVisible(true);
     }//GEN-LAST:event_btnPrincipalCalcularEstimativaActionPerformed
 

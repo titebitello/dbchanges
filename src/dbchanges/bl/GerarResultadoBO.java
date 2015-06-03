@@ -1,8 +1,8 @@
 package dbchanges.bl;
 
-import dbchanges.dal.CadastroVariaveisDAO;
+import dbchanges.dal.VariaveisDAO;
 import dbchanges.dtl.VariaveisDTO;
-import dbchanges.gui.CadastroVariaveisGUI;
+import dbchanges.gui.VariaveisGUI;
 import java.util.List;
 
 public class GerarResultadoBO {

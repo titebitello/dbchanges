@@ -5,8 +5,8 @@
  */
 package dbchanges.gui;
 
-import dbchanges.dal.ConsultaHistoricosDAO;
-import dbchanges.dtl.ConsultaHistoricosDTO;
+import dbchanges.dal.ProjetosDAO;
+import dbchanges.dtl.ProjetosDTO;
 import java.sql.Array;
 import java.sql.Blob;
 import java.sql.CallableStatement;
@@ -26,6 +26,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 import java.util.concurrent.Executor;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.persistence.Query;
 
 /**
@@ -128,13 +130,17 @@ public class ConsultaHistoricosGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jcbProjetosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbProjetosActionPerformed
-        
-        ConsultaHistoricosDAO projeto = new ConsultaHistoricosDAO();
+
+        ProjetosDAO projetoDao = new ProjetosDAO();
         String filtro = (String) jcbProjetos.getSelectedItem();
-        List<ConsultaHistoricosDAO> projeto = projeto.recuperarProjetosPorNome(filtro);  
-        
-        jcbProjetos.removeAll();  
-        jcbProjetos.addItem(projeto); 
+        List<ProjetosDTO> projetos = projetoDao.recuperarProjetosPorNome(filtro);
+
+        jcbProjetos.removeAll();
+
+        for (ProjetosDTO projeto : projetos) {
+            jcbProjetos.addItem(projeto);
+        }
+        // jcbProjetos.addItem(projetos); 
     }//GEN-LAST:event_jcbProjetosActionPerformed
 
     private void btnVoltarProjetoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarProjetoActionPerformed

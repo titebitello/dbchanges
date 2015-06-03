@@ -2,15 +2,15 @@ package dbchanges.bl;
 
 import Jama.Matrix;
 import Jama.QRDecomposition;
-import dbchanges.dal.CadastroHistoricoDAO;
-import dbchanges.dtl.HistoricoDTO;
+import dbchanges.dal.HistoricosDAO;
+import dbchanges.dtl.HistoricosDTO;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class MultipleLinearRegressionBO {
 
-    private final CadastroHistoricoDAO historicoDAO;
+    private final HistoricosDAO historicoDAO;
     private int N;              // number of 
     private int p;              // number of dependent variables
     private Matrix beta;        // regression coefficients
@@ -18,22 +18,22 @@ public class MultipleLinearRegressionBO {
     private double SST;
 
     public MultipleLinearRegressionBO() {
-        this.historicoDAO = new CadastroHistoricoDAO();
+        this.historicoDAO = new HistoricosDAO();
     }
 
-    protected List<HistoricoDTO> carregaDadosHistoricoParaCalculo() throws SQLException {
+    protected List<HistoricosDTO> carregaDadosHistoricoParaCalculo() throws SQLException {
         return historicoDAO.buscarHistoricoComTempoRealPreenchido();
     }
 
     protected double[][] montarDadosVariavelXParaCalculo() {
         double[][] matriz = null;
         try {
-            List<HistoricoDTO> historicos = carregaDadosHistoricoParaCalculo();
+            List<HistoricosDTO> historicos = carregaDadosHistoricoParaCalculo();
             int linhas = historicos.size();
             int colunas = 11;
             int linha = 0;
             matriz = new double[linhas][colunas];
-            for (HistoricoDTO historico : historicos) {
+            for (HistoricosDTO historico : historicos) {
                 matriz[linha][0] = 1;
                 matriz[linha][1] = historico.getLinhas();
                 matriz[linha][2] = historico.getColunas();
@@ -64,10 +64,10 @@ public class MultipleLinearRegressionBO {
     protected double[] montarDadosVariavelYParaCalculo() {
         double[] vetor = null;
         try {
-            List<HistoricoDTO> historicos = carregaDadosHistoricoParaCalculo();
+            List<HistoricosDTO> historicos = carregaDadosHistoricoParaCalculo();
             vetor = new double[historicos.size()];
             int coluna = 0;
-            for (HistoricoDTO historico : historicos) {
+            for (HistoricosDTO historico : historicos) {
                 vetor[coluna] = historico.getTempoEstimado();
                 ++coluna;
             }

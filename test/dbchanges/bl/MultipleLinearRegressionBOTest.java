@@ -5,7 +5,7 @@
  */
 package dbchanges.bl;
 
-import dbchanges.dtl.HistoricoDTO;
+import dbchanges.dtl.HistoricosDTO;
 import java.sql.SQLException;
 import java.util.List;
 import org.junit.Assert;
@@ -21,7 +21,7 @@ public class MultipleLinearRegressionBOTest {
     @Test
     public void carregaDadosHistoricoParaCalculo() throws SQLException{
         MultipleLinearRegressionBO regression = new MultipleLinearRegressionBO();
-        List<HistoricoDTO> historicos = regression.carregaDadosHistoricoParaCalculo();
+        List<HistoricosDTO> historicos = regression.carregaDadosHistoricoParaCalculo();
         Assert.assertTrue(historicos.size() > 1);
     }
     

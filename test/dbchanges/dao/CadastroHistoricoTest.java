@@ -5,8 +5,8 @@
  */
 package dbchanges.dao;
 
-import dbchanges.dal.CadastroHistoricoDAO;
-import dbchanges.dtl.HistoricoDTO;
+import dbchanges.dal.HistoricosDAO;
+import dbchanges.dtl.HistoricosDTO;
 import java.sql.SQLException;
 import java.util.List;
 import junit.framework.Assert;
@@ -39,8 +39,8 @@ public class CadastroHistoricoTest {
     //
     @Test
     public void buscarTodosHistoricosComTempoRealPreenchido() throws SQLException{
-        CadastroHistoricoDAO dao = new CadastroHistoricoDAO();
-        List<HistoricoDTO> historicos = dao.buscarHistoricoComTempoRealPreenchido();
+        HistoricosDAO dao = new HistoricosDAO();
+        List<HistoricosDTO> historicos = dao.buscarHistoricoComTempoRealPreenchido();
         Assert.assertTrue(historicos.size() > 1);
     }
 }
