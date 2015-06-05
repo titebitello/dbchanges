@@ -67,36 +67,21 @@ public class ProjetosDAO {
         }
     }
 
-    public List<ProjetosDTO> recuperarProjetosPorNome(String nome) {
+    public List<ProjetosDTO> recuperarProjetosPorNome() throws SQLException {
         List<ProjetosDTO> projetos = new ArrayList<ProjetosDTO>();
-        try {
-            String sql_select = "SELECT * FROM PROJETO ORDER BY PRJ_NOME ";
-            PreparedStatement statementSelect = connection.prepareStatement(sql_select);
-            ResultSet rs = statementSelect.executeQuery();
-
-            while (rs.next()) {
-                projetos.add(recuperarObjeto(rs));
-            }
-            rs.close();
-            statementSelect.close();
-
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-            System.out.println("Erro ao fazer busca do projeto");
+        String sql = "SELECT * FROM PROJETO ORDER BY PRJ_NOME ";
+        Statement statement = this.connection.createStatement();
+        ResultSet resultSet = statement.executeQuery(sql);
+        while (resultSet.next()) {
+            ProjetosDTO projeto = new ProjetosDTO();
+            id = resultSet.getInt("prj_id");
+            nome = resultSet.getString("prj_nome");
+            projeto.setId(id);
+            projeto.setNome(nome);
+            projetos.add(projeto);
         }
+        resultSet.close();
+        statement.close();
         return projetos;
-    }
-
-    public ProjetosDTO recuperarObjeto(ResultSet rs) {
-
-        ProjetosDTO projeto = new ProjetosDTO();
-        try {
-            projeto.setId(rs.getInt("id"));
-            projeto.setNome(rs.getString("nome"));
-        } catch (SQLException ex) {
-            Logger.getLogger(ProjetosDAO.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-        return projeto;
     }
 }

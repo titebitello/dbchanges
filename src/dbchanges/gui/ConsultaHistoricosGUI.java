@@ -60,6 +60,11 @@ public class ConsultaHistoricosGUI extends javax.swing.JFrame {
         btnVoltarProjeto = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                populateComboboxProject(evt);
+            }
+        });
 
         jcbProjetos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -67,7 +72,7 @@ public class ConsultaHistoricosGUI extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setText("Selecione o projeto");
+        jLabel1.setText("Selecione o projeto:");
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel2.setText("Consulta Históricos");
@@ -104,7 +109,7 @@ public class ConsultaHistoricosGUI extends javax.swing.JFrame {
                         .addGroup(layout.createSequentialGroup()
                             .addComponent(jLabel1)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(jcbProjetos, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jcbProjetos, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnVoltarProjeto, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 377, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -131,21 +136,26 @@ public class ConsultaHistoricosGUI extends javax.swing.JFrame {
 
     private void jcbProjetosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbProjetosActionPerformed
 
-        ProjetosDAO projetoDao = new ProjetosDAO();
-        String filtro = (String) jcbProjetos.getSelectedItem();
-        List<ProjetosDTO> projetos = projetoDao.recuperarProjetosPorNome(filtro);
-
-        jcbProjetos.removeAll();
-
-        for (ProjetosDTO projeto : projetos) {
-            jcbProjetos.addItem(projeto);
-        }
-        // jcbProjetos.addItem(projetos); 
     }//GEN-LAST:event_jcbProjetosActionPerformed
 
     private void btnVoltarProjetoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarProjetoActionPerformed
         this.dispose();
     }//GEN-LAST:event_btnVoltarProjetoActionPerformed
+
+    private void populateComboboxProject(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_populateComboboxProject
+        try {
+            ProjetosDAO projetoDao = new ProjetosDAO();
+            List<ProjetosDTO> projetos = projetoDao.recuperarProjetosPorNome();
+            jcbProjetos.getSelectedItem();
+            jcbProjetos.removeAll();
+
+            for (ProjetosDTO projeto : projetos) {
+                jcbProjetos.addItem(projeto);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ConsultaHistoricosGUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_populateComboboxProject
 
     /**
      * @param args the command line arguments

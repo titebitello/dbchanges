@@ -83,4 +83,9 @@ public class ProjetosDTO {
     public void setSid(String sid) {
         this.sid = sid;
     }
+
+    @Override
+    public String toString() {
+        return this.nome;
+    }
 }
