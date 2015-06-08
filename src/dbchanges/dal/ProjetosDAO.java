@@ -67,7 +67,7 @@ public class ProjetosDAO {
         }
     }
 
-    public List<ProjetosDTO> recuperarProjetosPorNome() throws SQLException {
+    public List<ProjetosDTO> recuperarProjetosPorNomeComboBox() throws SQLException {
         List<ProjetosDTO> projetos = new ArrayList<ProjetosDTO>();
         String sql = "SELECT * FROM PROJETO ORDER BY PRJ_NOME ";
         Statement statement = this.connection.createStatement();

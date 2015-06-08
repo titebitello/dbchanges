@@ -2,17 +2,18 @@ package dbchanges.dtl;
 
 public class HistoricosDTO {
 
-    private int linhas;
-    private int colunas;
-    private int tempoEstimado;
-    private int fks;
-    private int constraints2;
-    private int index2;
-    private int trigger2;
-    private int function2;
-    private int view2;
-    private int tabela;
-    private int tempoReal;
+    int linhas;
+    int colunas;
+    int tempoEstimado;
+    int fks;
+    int constraints2;
+    int index2;
+    int trigger2;
+    int function2;
+    int view2;
+    int tabela;
+    int tempoReal;
+    int id;
     
     public int getLinhas() {
         return linhas;
@@ -102,4 +103,11 @@ public class HistoricosDTO {
         this.tempoReal = tempoReal;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 }

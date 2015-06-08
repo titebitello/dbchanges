@@ -5,8 +5,11 @@
  */
 package dbchanges.gui;
 
+import dbchanges.dal.HistoricosDAO;
 import dbchanges.dal.ProjetosDAO;
+import dbchanges.dtl.HistoricosDTO;
 import dbchanges.dtl.ProjetosDTO;
+import java.awt.Component;
 import java.sql.Array;
 import java.sql.Blob;
 import java.sql.CallableStatement;
@@ -29,6 +32,8 @@ import java.util.concurrent.Executor;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.persistence.Query;
+import javax.swing.JScrollPane;
+import javax.swing.table.TableColumn;
 
 /**
  *
@@ -56,7 +61,7 @@ public class ConsultaHistoricosGUI extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jtbHistoricos = new javax.swing.JTable();
         btnVoltarProjeto = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -77,7 +82,7 @@ public class ConsultaHistoricosGUI extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel2.setText("Consulta Históricos");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jtbHistoricos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -88,7 +93,16 @@ public class ConsultaHistoricosGUI extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jtbHistoricos.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                jtbHistoricosActionPerformed(evt);
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
+        jScrollPane1.setViewportView(jtbHistoricos);
 
         btnVoltarProjeto.setText("Voltar");
         btnVoltarProjeto.addActionListener(new java.awt.event.ActionListener() {
@@ -145,7 +159,7 @@ public class ConsultaHistoricosGUI extends javax.swing.JFrame {
     private void populateComboboxProject(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_populateComboboxProject
         try {
             ProjetosDAO projetoDao = new ProjetosDAO();
-            List<ProjetosDTO> projetos = projetoDao.recuperarProjetosPorNome();
+            List<ProjetosDTO> projetos = projetoDao.recuperarProjetosPorNomeComboBox();
             jcbProjetos.getSelectedItem();
             jcbProjetos.removeAll();
 
@@ -156,6 +170,20 @@ public class ConsultaHistoricosGUI extends javax.swing.JFrame {
             Logger.getLogger(ConsultaHistoricosGUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_populateComboboxProject
+
+    private void jtbHistoricosActionPerformed(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jtbHistoricosActionPerformed
+        try {
+            HistoricosDAO historicoDao = new HistoricosDAO();
+            List<HistoricosDTO> historicos = historicoDao.recuperarHistoricosJtable();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        
+        JScrollPane scroll = new JScrollPane();  
+        scroll.setBounds(70, 305, 470, 100);  
+        scroll.setVisible(true);  
+        this.add(scroll);  
+    }//GEN-LAST:event_jtbHistoricosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -198,7 +226,7 @@ public class ConsultaHistoricosGUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JComboBox jcbProjetos;
+    private javax.swing.JTable jtbHistoricos;
     // End of variables declaration//GEN-END:variables
 }
