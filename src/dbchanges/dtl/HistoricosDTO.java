@@ -4,18 +4,18 @@ import java.util.Date;
 
 public class HistoricosDTO {
 
-    int linhas;
-    int colunas;
-    int tempoEstimado;
-    int fks;
-    int constraints2;
-    int index2;
-    int trigger2;
-    int function2;
-    int view2;
-    int tabela;
-    int tempoReal;
-    int id;
+    Integer linhas;
+    Integer colunas;
+    Integer tempoEstimado;
+    Integer fks;
+    Integer constraints2;
+    Integer index2;
+    Integer trigger2;
+    Integer function2;
+    Integer view2;
+    Integer tabela;
+    Integer tempoReal;
+    Integer id;
     String status;
     Date datahora;
     
@@ -24,7 +24,7 @@ public class HistoricosDTO {
         return linhas;
     }
 
-    public void setLinhas(int linhas) {
+    public void setLinhas(Integer linhas) {
         this.linhas = linhas;
     }
     
@@ -32,7 +32,7 @@ public class HistoricosDTO {
         return tempoEstimado;
     }
 
-    public void setTempoEstimado(int tempoEstimado) {
+    public void setTempoEstimado(Integer tempoEstimado) {
         this.tempoEstimado = tempoEstimado;
     }
 
@@ -40,7 +40,7 @@ public class HistoricosDTO {
         return colunas;
     }
 
-    public void setColunas(int colunas) {
+    public void setColunas(Integer colunas) {
         this.colunas = colunas;
     }
     
@@ -48,7 +48,7 @@ public class HistoricosDTO {
         return fks;
     }
 
-    public void setFks(int fks) {
+    public void setFks(Integer fks) {
         this.fks = fks;
     }
 
@@ -56,7 +56,7 @@ public class HistoricosDTO {
         return constraints2;
     }
 
-    public void setConstraints2(int constraints2) {
+    public void setConstraints2(Integer constraints2) {
         this.constraints2 = constraints2;
     }
 
@@ -64,7 +64,7 @@ public class HistoricosDTO {
         return index2;
     }
 
-    public void setIndex2(int index2) {
+    public void setIndex2(Integer index2) {
         this.index2 = index2;
     }
 
@@ -72,7 +72,7 @@ public class HistoricosDTO {
         return trigger2;
     }
 
-    public void setTrigger2(int trigger2) {
+    public void setTrigger2(Integer trigger2) {
         this.trigger2 = trigger2;
     }
 
@@ -80,7 +80,7 @@ public class HistoricosDTO {
         return function2;
     }
 
-    public void setFunction2(int function2) {
+    public void setFunction2(Integer function2) {
         this.function2 = function2;
     }
 
@@ -88,7 +88,7 @@ public class HistoricosDTO {
         return view2;
     }
 
-    public void setView2(int view2) {
+    public void setView2(Integer view2) {
         this.view2 = view2;
     }
 
@@ -96,7 +96,7 @@ public class HistoricosDTO {
         return tabela;
     }
 
-    public void setTabela(int tabela) {
+    public void setTabela(Integer tabela) {
         this.tabela = tabela;
     }
 
@@ -104,7 +104,7 @@ public class HistoricosDTO {
         return tempoReal;
     }
 
-    public void setTempoReal(int tempoReal) {
+    public void setTempoReal(Integer tempoReal) {
         this.tempoReal = tempoReal;
     }
 
@@ -112,7 +112,7 @@ public class HistoricosDTO {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

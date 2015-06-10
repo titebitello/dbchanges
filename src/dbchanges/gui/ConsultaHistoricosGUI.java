@@ -77,9 +77,9 @@ public class ConsultaHistoricosGUI extends javax.swing.JFrame {
             }
         });
 
-        jcbProjetos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jcbProjetosActionPerformed(evt);
+        jcbProjetos.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jtbProjetoHistoricosStateChanged(evt);
             }
         });
 
@@ -99,15 +99,6 @@ public class ConsultaHistoricosGUI extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jtbHistoricos.addAncestorListener(new javax.swing.event.AncestorListener() {
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-            }
-            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
-                jtbHistoricosActionPerformed(evt);
-            }
-            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
-            }
-        });
         jScrollPane1.setViewportView(jtbHistoricos);
 
         btnVoltarProjeto.setText("Voltar");
@@ -183,10 +174,6 @@ public class ConsultaHistoricosGUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jcbProjetosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbProjetosActionPerformed
-
-    }//GEN-LAST:event_jcbProjetosActionPerformed
-
     private void btnVoltarProjetoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarProjetoActionPerformed
         this.dispose();
     }//GEN-LAST:event_btnVoltarProjetoActionPerformed
@@ -206,20 +193,6 @@ public class ConsultaHistoricosGUI extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_populateComboboxProject
 
-    private void jtbHistoricosActionPerformed(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jtbHistoricosActionPerformed
-        try {
-            HistoricosDAO historicoDao = new HistoricosDAO();
-            List<HistoricosDTO> historicos = historicoDao.recuperarHistoricosJtable();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        
-        JScrollPane scroll = new JScrollPane();  
-        scroll.setBounds(70, 305, 470, 100);  
-        scroll.setVisible(true);  
-        this.add(scroll);  
-    }//GEN-LAST:event_jtbHistoricosActionPerformed
-
     private void btnFeedbackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFeedbackActionPerformed
         HistoricosDTO historico = new HistoricosDTO();
         historico.setId(Integer.parseInt(jtfIdHistoricoFeedback.getText()));
@@ -230,6 +203,22 @@ public class ConsultaHistoricosGUI extends javax.swing.JFrame {
         jtfIdHistoricoFeedback.setText("");
         jtfTempoRealFeedback.setText("");
     }//GEN-LAST:event_btnFeedbackActionPerformed
+
+    private void jtbProjetoHistoricosStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jtbProjetoHistoricosStateChanged
+        try {
+            ProjetosDTO projeto = (ProjetosDTO) jcbProjetos.getSelectedItem();
+            HistoricosDAO historicoDao = new HistoricosDAO();            
+            List<HistoricosDTO> historicos = historicoDao.recuperarHistoricosJtable(projeto.getId());
+            historicos.size();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        JScrollPane scroll = new JScrollPane();
+        scroll.setBounds(70, 305, 470, 100);
+        scroll.setVisible(true);
+        this.add(scroll);
+    }//GEN-LAST:event_jtbProjetoHistoricosStateChanged
 
     /**
      * @param args the command line arguments

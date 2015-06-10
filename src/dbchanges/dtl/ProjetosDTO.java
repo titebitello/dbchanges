@@ -2,21 +2,21 @@ package dbchanges.dtl;
 
 public class ProjetosDTO {
     
-    Number id;
+    Integer id;
     String nome;
     String observacao;
     String responsavel;
     String usuarioDaConexao;
     String senha;
     String host;
-    Number porta;
+    Integer porta;
     String sid;
     
-    public Number getId(){
+    public Integer getId(){
         return id;
     }
     
-    public void setId(Number id){
+    public void setId(Integer id){
         this.id = id;
     }
     
@@ -68,11 +68,11 @@ public class ProjetosDTO {
         this.host = host;
     }
 
-    public Number getPorta() {
+    public Integer getPorta() {
         return porta;
     }
 
-    public void setPorta(Number porta) {
+    public void setPorta(Integer porta) {
         this.porta = porta;
     }
 

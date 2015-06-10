@@ -56,11 +56,12 @@ public class HistoricosDAO {
         return historicos;
     }
 
-    public List<HistoricosDTO> recuperarHistoricosJtable() throws SQLException {
+    public List<HistoricosDTO> recuperarHistoricosJtable(int idProjeto) throws SQLException {
         List<HistoricosDTO> historicos = new ArrayList<HistoricosDTO>();
-        String sql = "SELECT * FROM historico ORDER BY hst_id ";
-        Statement statement = this.connection.createStatement();
-        ResultSet resultSet = statement.executeQuery(sql);
+        String sql = "SELECT * FROM historico WHERE prj_id = ? ORDER BY hst_id ";
+        PreparedStatement stmt = connection.prepareStatement(sql);
+        stmt.setInt(1, idProjeto);
+        ResultSet resultSet = stmt.executeQuery();
         while (resultSet.next()) {
             HistoricosDTO historico = new HistoricosDTO();
             int id = resultSet.getInt("hst_id");
@@ -94,7 +95,7 @@ public class HistoricosDAO {
             historicos.add(historico);
         }
         resultSet.close();
-        statement.close();
+        stmt.close();
         return historicos;
     }
 

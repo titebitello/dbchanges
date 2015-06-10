@@ -18,14 +18,14 @@ import java.util.logging.Logger;
 public class ProjetosDAO {
 
     private Connection connection;
-    Number id;
+    Integer id;
     String nome;
     String observacao;
     String responsavel;
     String usuarioDaConexao;
     String senha;
     String host;
-    Number porta;
+    Integer porta;
     String sid;
 
     public ProjetosDAO() {
