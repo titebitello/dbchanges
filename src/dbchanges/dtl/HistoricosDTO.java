@@ -1,5 +1,7 @@
 package dbchanges.dtl;
 
+import java.util.Date;
+
 public class HistoricosDTO {
 
     int linhas;
@@ -14,6 +16,9 @@ public class HistoricosDTO {
     int tabela;
     int tempoReal;
     int id;
+    String status;
+    Date datahora;
+    
     
     public int getLinhas() {
         return linhas;
@@ -109,5 +114,21 @@ public class HistoricosDTO {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public Date getDatahora() {
+        return datahora;
+    }
+
+    public void setDatahora(Date datahora) {
+        this.datahora = datahora;
     }
 }

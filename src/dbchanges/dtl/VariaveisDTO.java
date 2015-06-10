@@ -1,5 +1,7 @@
 package dbchanges.dtl;
 
+import java.util.Date;
+
 public class VariaveisDTO {
     Integer id;
     Integer linhas;
@@ -13,6 +15,8 @@ public class VariaveisDTO {
     Integer tabelas;
     Integer idProjeto;
     Float tempoEstimado;
+    String status;
+    Date datahora;
 
     public Float getTempoEstimado() {
         return tempoEstimado;
@@ -108,6 +112,22 @@ public class VariaveisDTO {
 
     public void setIdProjeto(Integer idProjeto) {
         this.idProjeto = idProjeto;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public Date getDatahora() {
+        return datahora;
+    }
+
+    public void setDatahora(Date datahora) {
+        this.datahora = datahora;
     }
             
 }
