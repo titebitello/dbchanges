@@ -34,6 +34,7 @@ import java.util.logging.Logger;
 import javax.persistence.Query;
 import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
+import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 
 /**
@@ -90,16 +91,41 @@ public class ConsultaHistoricosGUI extends javax.swing.JFrame {
 
         jtbHistoricos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Código", "Data/Hora", "Linhas", "Colunas", "Fks", "Constraints", "Functions", "Triggers", "Indices", "Views", "Tabelas", "Tempo Estimado", "Tempo Real"
             }
         ));
         jScrollPane1.setViewportView(jtbHistoricos);
+        if (jtbHistoricos.getColumnModel().getColumnCount() > 0) {
+            jtbHistoricos.getColumnModel().getColumn(0).setResizable(false);
+            jtbHistoricos.getColumnModel().getColumn(0).setPreferredWidth(40);
+            jtbHistoricos.getColumnModel().getColumn(1).setResizable(false);
+            jtbHistoricos.getColumnModel().getColumn(1).setPreferredWidth(130);
+            jtbHistoricos.getColumnModel().getColumn(2).setResizable(false);
+            jtbHistoricos.getColumnModel().getColumn(2).setPreferredWidth(50);
+            jtbHistoricos.getColumnModel().getColumn(3).setResizable(false);
+            jtbHistoricos.getColumnModel().getColumn(3).setPreferredWidth(40);
+            jtbHistoricos.getColumnModel().getColumn(4).setResizable(false);
+            jtbHistoricos.getColumnModel().getColumn(4).setPreferredWidth(30);
+            jtbHistoricos.getColumnModel().getColumn(5).setResizable(false);
+            jtbHistoricos.getColumnModel().getColumn(5).setPreferredWidth(70);
+            jtbHistoricos.getColumnModel().getColumn(6).setResizable(false);
+            jtbHistoricos.getColumnModel().getColumn(6).setPreferredWidth(50);
+            jtbHistoricos.getColumnModel().getColumn(7).setResizable(false);
+            jtbHistoricos.getColumnModel().getColumn(7).setPreferredWidth(50);
+            jtbHistoricos.getColumnModel().getColumn(8).setResizable(false);
+            jtbHistoricos.getColumnModel().getColumn(8).setPreferredWidth(50);
+            jtbHistoricos.getColumnModel().getColumn(9).setResizable(false);
+            jtbHistoricos.getColumnModel().getColumn(9).setPreferredWidth(40);
+            jtbHistoricos.getColumnModel().getColumn(10).setResizable(false);
+            jtbHistoricos.getColumnModel().getColumn(10).setPreferredWidth(50);
+            jtbHistoricos.getColumnModel().getColumn(11).setResizable(false);
+            jtbHistoricos.getColumnModel().getColumn(11).setPreferredWidth(100);
+            jtbHistoricos.getColumnModel().getColumn(12).setResizable(false);
+            jtbHistoricos.getColumnModel().getColumn(12).setPreferredWidth(70);
+        }
 
         btnVoltarProjeto.setText("Voltar");
         btnVoltarProjeto.addActionListener(new java.awt.event.ActionListener() {
@@ -125,26 +151,28 @@ public class ConsultaHistoricosGUI extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel2)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jtfIdHistoricoFeedback, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jtfTempoRealFeedback, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnFeedback, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jcbProjetos, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnVoltarProjeto, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 377, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jtfTempoRealFeedback, javax.swing.GroupLayout.DEFAULT_SIZE, 61, Short.MAX_VALUE)
-                            .addComponent(jtfIdHistoricoFeedback))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnFeedback, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1022, Short.MAX_VALUE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -163,12 +191,10 @@ public class ConsultaHistoricosGUI extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(jtfIdHistoricoFeedback, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnFeedback))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnFeedback)
                     .addComponent(jLabel4)
                     .addComponent(jtfTempoRealFeedback, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -207,17 +233,30 @@ public class ConsultaHistoricosGUI extends javax.swing.JFrame {
     private void jtbProjetoHistoricosStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jtbProjetoHistoricosStateChanged
         try {
             ProjetosDTO projeto = (ProjetosDTO) jcbProjetos.getSelectedItem();
-            HistoricosDAO historicoDao = new HistoricosDAO();            
+            HistoricosDAO historicoDao = new HistoricosDAO();
             List<HistoricosDTO> historicos = historicoDao.recuperarHistoricosJtable(projeto.getId());
-            historicos.size();
+            //historicos.size();
+            DefaultTableModel modeloTable = (DefaultTableModel) jtbHistoricos.getModel();
+            for (HistoricosDTO historico : historicos) {
+                modeloTable.addRow(new Object[]{
+                    historico.getId(),
+                    historico.getDatahora(),
+                    historico.getLinhas(),
+                    historico.getColunas(),
+                    historico.getFks(),
+                    historico.getConstraints2(),
+                    historico.getFunction2(),
+                    historico.getTrigger2(),
+                    historico.getIndex2(),
+                    historico.getView2(),
+                    historico.getTabela(),
+                    historico.getTempoEstimado(),
+                    historico.getTempoReal()
+                });
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
-        JScrollPane scroll = new JScrollPane();
-        scroll.setBounds(70, 305, 470, 100);
-        scroll.setVisible(true);
-        this.add(scroll);
     }//GEN-LAST:event_jtbProjetoHistoricosStateChanged
 
     /**
