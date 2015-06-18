@@ -80,4 +80,23 @@ public class ProjetosDAO {
         statement.close();
         return projetos;
     }
+    
+    public void buscaDadosProjetoParaConexao() throws SQLException {
+        String sql = "SELECT * FROM PROJETO";
+        Statement statement = this.connection.createStatement();
+        ResultSet resultSet = statement.executeQuery(sql);
+        while (resultSet.next()) {
+            ProjetosDTO projeto = new ProjetosDTO();
+            usuarioDaConexao = resultSet.getString("prj_usuariodaconexao");
+            senha = resultSet.getString("prj_senha");
+            host = resultSet.getString("prj_host");
+            sid = resultSet.getString("prj_sid");
+            projeto.setUsuarioDaConexao(usuarioDaConexao);
+            projeto.setSenha(senha);
+            projeto.setHost(host);
+            projeto.setSid(sid);
+        }
+        resultSet.close();
+        statement.close();
+    }
 }

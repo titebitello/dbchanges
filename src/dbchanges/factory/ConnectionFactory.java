@@ -9,7 +9,6 @@ import java.sql.Statement;
 public class ConnectionFactory {
     public Connection getConnection() {
         try {
-            //return DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl","dbchanges_owner","dbchanges");
             return DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl","dbchangesprod_owner","dbchanges");
         }
         catch(SQLException excecao) {

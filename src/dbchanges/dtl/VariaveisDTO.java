@@ -17,6 +17,10 @@ public class VariaveisDTO {
     Float tempoEstimado;
     String status;
     Date datahora;
+    Integer idTipoOperacao;
+    String nomeTipoOperacao;
+    Integer idTipoObjeto;
+    String nomeTipoObjeto;
 
     public Float getTempoEstimado() {
         return tempoEstimado;
@@ -129,5 +133,41 @@ public class VariaveisDTO {
     public void setDatahora(Date datahora) {
         this.datahora = datahora;
     }
-            
+
+    public Integer getIdTipoOperacao() {
+        return idTipoOperacao;
+    }
+
+    public void setIdTipoOperacao(Integer idTipoOperacao) {
+        this.idTipoOperacao = idTipoOperacao;
+    }
+
+    public String getNomeTipoOperacao() {
+        return nomeTipoOperacao;
+    }
+
+    public void setNomeTipoOperacao(String nomeTipoOperacao) {
+        this.nomeTipoOperacao = nomeTipoOperacao;
+    }
+
+    public Integer getIdTipoObjeto() {
+        return idTipoObjeto;
+    }
+
+    public void setIdTipoObjeto(Integer idTipoObjeto) {
+        this.idTipoObjeto = idTipoObjeto;
+    }
+
+    public String getNomeTipoObjeto() {
+        return nomeTipoObjeto;
+    }
+
+    public void setNomeTipoObjeto(String nomeTipoObjeto) {
+        this.nomeTipoObjeto = nomeTipoObjeto;
+    }
+     
+   @Override
+    public String toString() {
+        return this.nomeTipoOperacao; 
+    }
 }

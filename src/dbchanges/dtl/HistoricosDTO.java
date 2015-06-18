@@ -6,7 +6,6 @@ public class HistoricosDTO {
 
     Integer linhas;
     Integer colunas;
-    Integer tempoEstimado;
     Integer fks;
     Integer constraints2;
     Integer index2;
@@ -15,6 +14,7 @@ public class HistoricosDTO {
     Integer view2;
     Integer tabela;
     Integer tempoReal;
+    Integer tempoEstimado;
     Integer id;
     String status;
     Date datahora;

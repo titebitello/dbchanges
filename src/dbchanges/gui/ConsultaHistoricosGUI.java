@@ -9,33 +9,12 @@ import dbchanges.dal.HistoricosDAO;
 import dbchanges.dal.ProjetosDAO;
 import dbchanges.dtl.HistoricosDTO;
 import dbchanges.dtl.ProjetosDTO;
-import java.awt.Component;
-import java.sql.Array;
-import java.sql.Blob;
-import java.sql.CallableStatement;
-import java.sql.Clob;
-import java.sql.Connection;
-import java.sql.DatabaseMetaData;
-import java.sql.NClob;
-import java.sql.PreparedStatement;
-import java.sql.SQLClientInfoException;
 import java.sql.SQLException;
-import java.sql.SQLWarning;
-import java.sql.SQLXML;
-import java.sql.Savepoint;
-import java.sql.Statement;
-import java.sql.Struct;
 import java.util.List;
-import java.util.Map;
-import java.util.Properties;
-import java.util.concurrent.Executor;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.persistence.Query;
 import javax.swing.JOptionPane;
-import javax.swing.JScrollPane;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
 
 /**
  *
@@ -224,10 +203,14 @@ public class ConsultaHistoricosGUI extends javax.swing.JFrame {
         historico.setId(Integer.parseInt(jtfIdHistoricoFeedback.getText()));
         historico.setTempoReal(Integer.parseInt(jtfTempoRealFeedback.getText()));
         HistoricosDAO dao = new HistoricosDAO();
-        dao.adicionaFeedback(historico);
-        JOptionPane.showMessageDialog(null, "Historico " + jtfIdHistoricoFeedback.getText() + " atualizado com sucesso! ");
+        if (dao.adicionaFeedback(historico)) {
+            JOptionPane.showMessageDialog(null, "Historico " + jtfIdHistoricoFeedback.getText() + " atualizado com sucesso! ");
+        } else {
+            JOptionPane.showMessageDialog(null, "Historico inexistente!");
+        }
         jtfIdHistoricoFeedback.setText("");
         jtfTempoRealFeedback.setText("");
+        
     }//GEN-LAST:event_btnFeedbackActionPerformed
 
     private void jtbProjetoHistoricosStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jtbProjetoHistoricosStateChanged
@@ -235,7 +218,6 @@ public class ConsultaHistoricosGUI extends javax.swing.JFrame {
             ProjetosDTO projeto = (ProjetosDTO) jcbProjetos.getSelectedItem();
             HistoricosDAO historicoDao = new HistoricosDAO();
             List<HistoricosDTO> historicos = historicoDao.recuperarHistoricosJtable(projeto.getId());
-            //historicos.size();
             DefaultTableModel modeloTable = (DefaultTableModel) jtbHistoricos.getModel();
             for (HistoricosDTO historico : historicos) {
                 modeloTable.addRow(new Object[]{

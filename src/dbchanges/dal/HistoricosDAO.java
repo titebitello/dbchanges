@@ -7,9 +7,13 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.Timestamp;
+import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 public class HistoricosDAO {
 
@@ -99,7 +103,8 @@ public class HistoricosDAO {
         return historicos;
     }
 
-    public void adicionaFeedback(HistoricosDTO historico) {
+    public boolean adicionaFeedback(HistoricosDTO historico) {
+        boolean retorno;
         try {
             String sql = "UPDATE historico SET hst_temporeal = ?, hst_status = ?"
                        + "WHERE hst_id = ?";
@@ -107,10 +112,11 @@ public class HistoricosDAO {
             stmt.setInt(1, historico.getTempoReal());
             stmt.setString(2, "1");
             stmt.setInt(3, historico.getId());
-            stmt.executeUpdate();
+            retorno = stmt.executeUpdate() > 0;
             stmt.close();
         } catch (SQLException u) {
             throw new RuntimeException(u);
         }
+        return retorno;
     }
 }
