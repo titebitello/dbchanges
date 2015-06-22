@@ -62,6 +62,11 @@ public class ConsultaHistoricosGUI extends javax.swing.JFrame {
                 jtbProjetoHistoricosStateChanged(evt);
             }
         });
+        jcbProjetos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcbProjetosActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("Selecione o projeto:");
 
@@ -240,6 +245,10 @@ public class ConsultaHistoricosGUI extends javax.swing.JFrame {
             e.printStackTrace();
         }
     }//GEN-LAST:event_jtbProjetoHistoricosStateChanged
+
+    private void jcbProjetosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbProjetosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jcbProjetosActionPerformed
 
     /**
      * @param args the command line arguments

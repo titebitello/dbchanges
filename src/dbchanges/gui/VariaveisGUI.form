@@ -87,7 +87,7 @@
                           <Group type="103" alignment="1" groupAlignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="btnVoltarVariaveis" alignment="1" min="-2" pref="98" max="-2" attributes="0"/>
-                                  <Component id="jButton1" alignment="1" min="-2" pref="98" max="-2" attributes="0"/>
+                                  <Component id="btnCalcularAutomaticamente" alignment="1" min="-2" pref="98" max="-2" attributes="0"/>
                                   <Component id="btnCalcular" alignment="1" min="-2" pref="98" max="-2" attributes="0"/>
                               </Group>
                               <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
@@ -96,7 +96,10 @@
                       </Group>
                   </Group>
                   <Group type="102" attributes="0">
-                      <Component id="jTextField1" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jTextField1" min="-2" max="-2" attributes="0"/>
+                          <Component id="jcbProjetoVariavel" min="-2" pref="120" max="-2" attributes="0"/>
+                      </Group>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -163,7 +166,7 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jtfIndices" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnCalcularAutomaticamente" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jcbTipoObjeto" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
@@ -192,8 +195,9 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jtfCodigoProjeto" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel12" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jcbProjetoVariavel" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="unrelated" pref="57" max="32767" attributes="0"/>
+              <EmptySpace pref="57" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -349,10 +353,13 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLimparVariaveisActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton1">
+    <Component class="javax.swing.JButton" name="btnCalcularAutomaticamente">
       <Properties>
         <Property name="text" type="java.lang.String" value="Automatico"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCalcularAutomaticamenteActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel13">
       <Properties>
@@ -415,6 +422,13 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jcbTipoObjetoActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="jcbProjetoVariavel">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="0"/>
+        </Property>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>

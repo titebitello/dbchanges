@@ -88,7 +88,7 @@ public class VariaveisDAO {
         return variaveis;
     }
     
-        public List<VariaveisDTO> recuperarTipoObjetoComboBox() throws SQLException {
+    public List<VariaveisDTO> recuperarTipoObjetoComboBox() throws SQLException {
         List<VariaveisDTO> variaveis = new ArrayList<VariaveisDTO>();
         String sql = "SELECT * FROM tipoobjeto ORDER BY tob_nome ";
         Statement statement = this.connection.createStatement();

@@ -7,6 +7,8 @@ import dbchanges.dal.VariaveisDAO;
 import dbchanges.dtl.ProjetosDTO;
 import javax.swing.JOptionPane;
 import dbchanges.dtl.VariaveisDTO;
+import dbchanges.factory.ConnectionParameters;
+import java.sql.Connection;
 import java.sql.SQLException;
 import java.text.DecimalFormat;
 import java.util.List;
@@ -60,7 +62,7 @@ public class VariaveisGUI extends javax.swing.JFrame {
         btnVoltarVariaveis = new javax.swing.JButton();
         btnCalcular = new javax.swing.JButton();
         btnLimparVariaveis = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        btnCalcularAutomaticamente = new javax.swing.JButton();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jcbTipoOperacao = new javax.swing.JComboBox();
@@ -70,6 +72,7 @@ public class VariaveisGUI extends javax.swing.JFrame {
         jTextField1 = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
         jcbTipoObjeto = new javax.swing.JComboBox();
+        jcbProjetoVariavel = new javax.swing.JComboBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -159,7 +162,12 @@ public class VariaveisGUI extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Automatico");
+        btnCalcularAutomaticamente.setText("Automatico");
+        btnCalcularAutomaticamente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCalcularAutomaticamenteActionPerformed(evt);
+            }
+        });
 
         jLabel13.setText("Cálculo:");
 
@@ -241,12 +249,14 @@ public class VariaveisGUI extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(btnVoltarVariaveis, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btnCalcularAutomaticamente, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(btnCalcular, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addComponent(jLabel13))
                             .addComponent(btnLimparVariaveis, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jcbProjetoVariavel, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -296,7 +306,7 @@ public class VariaveisGUI extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jtfIndices, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7)
-                    .addComponent(jButton1)
+                    .addComponent(btnCalcularAutomaticamente)
                     .addComponent(jcbTipoObjeto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 0, 0)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -319,7 +329,8 @@ public class VariaveisGUI extends javax.swing.JFrame {
                 .addGap(0, 0, 0)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jtfCodigoProjeto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel12))
+                    .addComponent(jLabel12)
+                    .addComponent(jcbProjetoVariavel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(57, Short.MAX_VALUE))
         );
 
@@ -399,12 +410,21 @@ public class VariaveisGUI extends javax.swing.JFrame {
             jcbTipoObjeto.getSelectedItem();
             jcbTipoObjeto.removeAll();
             
+            ProjetosDAO projetoDao = new ProjetosDAO();
+            List<ProjetosDTO> projetos = projetoDao.recuperarProjetosPorNomeComboBox();
+            jcbProjetoVariavel.getSelectedItem();
+            jcbProjetoVariavel.removeAll();
+            
             for (VariaveisDTO variavel : variaveis) {
                 jcbTipoOperacao.addItem(variavel);
             }
                 
             for (VariaveisDTO variavel1 : variaveis1) {
                 jcbTipoObjeto.addItem(variavel1);
+            }
+            
+            for (ProjetosDTO projeto : projetos) {
+                jcbProjetoVariavel.addItem(projeto);
             }
         } catch (SQLException ex) {
             Logger.getLogger(VariaveisGUI.class.getName()).log(Level.SEVERE, null, ex);
@@ -418,6 +438,23 @@ public class VariaveisGUI extends javax.swing.JFrame {
     private void jcbTipoObjetoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbTipoObjetoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jcbTipoObjetoActionPerformed
+
+    private void btnCalcularAutomaticamenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcularAutomaticamenteActionPerformed
+        try {
+            ProjetosDTO projeto = (ProjetosDTO) jcbProjetoVariavel.getSelectedItem();
+            ProjetosDAO projetoDao = new ProjetosDAO();
+            List<ProjetosDTO> projetos = projetoDao.buscaDadosProjetoParaConexao(projeto.getId());
+            for (ProjetosDTO projetoCalc : projetos) {
+                jcbProjetoVariavel.addItem(projeto);
+            }
+            
+            ConnectionParameters conexao = new ConnectionParameters();
+            Connection resultado = conexao.getConnection();
+            System.out.println(projetoDao);
+        } catch (SQLException ex) {
+            Logger.getLogger(VariaveisGUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnCalcularAutomaticamenteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -457,9 +494,9 @@ public class VariaveisGUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCalcular;
+    private javax.swing.JButton btnCalcularAutomaticamente;
     private javax.swing.JButton btnLimparVariaveis;
     private javax.swing.JButton btnVoltarVariaveis;
-    private javax.swing.JButton jButton1;
     private javax.swing.JComboBox jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -479,6 +516,7 @@ public class VariaveisGUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JComboBox jcbProjetoVariavel;
     private javax.swing.JComboBox jcbTipoObjeto;
     private javax.swing.JComboBox jcbTipoOperacao;
     private javax.swing.JTextField jtfCodigoProjeto;

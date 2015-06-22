@@ -65,7 +65,7 @@ public class ProjetosDAO {
 
     public List<ProjetosDTO> recuperarProjetosPorNomeComboBox() throws SQLException {
         List<ProjetosDTO> projetos = new ArrayList<ProjetosDTO>();
-        String sql = "SELECT * FROM PROJETO ORDER BY PRJ_NOME ";
+        String sql = "SELECT * FROM projeto ORDER BY prj_nome ";
         Statement statement = this.connection.createStatement();
         ResultSet resultSet = statement.executeQuery(sql);
         while (resultSet.next()) {
@@ -81,22 +81,28 @@ public class ProjetosDAO {
         return projetos;
     }
     
-    public void buscaDadosProjetoParaConexao() throws SQLException {
-        String sql = "SELECT * FROM PROJETO";
-        Statement statement = this.connection.createStatement();
-        ResultSet resultSet = statement.executeQuery(sql);
+    public List<ProjetosDTO> buscaDadosProjetoParaConexao(int idProjeto) throws SQLException {
+        List<ProjetosDTO> projetos = new ArrayList<ProjetosDTO>();
+        String sql = "SELECT * FROM projeto WHERE prj_id = ?";
+        PreparedStatement stmt = connection.prepareStatement(sql);
+        stmt.setInt(1, idProjeto);
+        ResultSet resultSet = stmt.executeQuery();
         while (resultSet.next()) {
             ProjetosDTO projeto = new ProjetosDTO();
             usuarioDaConexao = resultSet.getString("prj_usuariodaconexao");
             senha = resultSet.getString("prj_senha");
             host = resultSet.getString("prj_host");
             sid = resultSet.getString("prj_sid");
+            porta = resultSet.getInt("prj_porta");
             projeto.setUsuarioDaConexao(usuarioDaConexao);
             projeto.setSenha(senha);
             projeto.setHost(host);
             projeto.setSid(sid);
+            projeto.setPorta(porta);
+            projetos.add(projeto);
         }
         resultSet.close();
-        statement.close();
+        stmt.close();
+        return projetos;
     }
 }

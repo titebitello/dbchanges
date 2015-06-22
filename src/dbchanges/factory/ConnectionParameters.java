@@ -7,8 +7,20 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Connection;
 import java.sql.Statement;
+import java.util.List;
 
 public class ConnectionParameters {
+    private final ProjetosDAO projetoDAO;
+    
+    public ConnectionParameters() {
+        this.projetoDAO = new ProjetosDAO();
+    }
+
+    protected List<ProjetosDTO> carregaDadosProjetoParaConexao() throws SQLException {
+        int idProjeto = 0;
+        return projetoDAO.buscaDadosProjetoParaConexao(idProjeto);
+    }
+    
     public Connection getConnection() {
     String usuarioDaConexao;
     String senha;
@@ -23,7 +35,7 @@ public class ConnectionParameters {
         host = projetos.getHost();
         porta = projetos.getPorta();
         sid = projetos.getSid();
-        url = "jdbc:oracle:thin:@" + host + "/" + porta + ":" + sid;
+        url = "jdbc:oracle:thin:@" + host + ":" + porta + ":" + sid;
         try {
             return DriverManager.getConnection(url, usuarioDaConexao, senha);
         }
