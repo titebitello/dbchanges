@@ -16,12 +16,12 @@ public class ConnectionParameters {
         this.projetoDAO = new ProjetosDAO();
     }
 
-    protected List<ProjetosDTO> carregaDadosProjetoParaConexao() throws SQLException {
+    public List<ProjetosDTO> carregaDadosProjetoParaConexao() throws SQLException {
         int idProjeto = 0;
         return projetoDAO.buscaDadosProjetoParaConexao(idProjeto);
     }
     
-    public Connection getConnection() {
+    public Connection getConnection(ProjetosDTO projetos) {
     String usuarioDaConexao;
     String senha;
     String host;
@@ -29,7 +29,6 @@ public class ConnectionParameters {
     String sid;
     String url;
 
-        ProjetosDTO projetos = new ProjetosDTO();
         usuarioDaConexao = projetos.getUsuarioDaConexao();
         senha = projetos.getSenha();
         host = projetos.getHost();

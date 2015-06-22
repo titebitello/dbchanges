@@ -449,7 +449,7 @@ public class VariaveisGUI extends javax.swing.JFrame {
             }
             
             ConnectionParameters conexao = new ConnectionParameters();
-            Connection resultado = conexao.getConnection();
+            Connection resultado = conexao.getConnection(projetos.get(0));
             System.out.println(projetoDao);
         } catch (SQLException ex) {
             Logger.getLogger(VariaveisGUI.class.getName()).log(Level.SEVERE, null, ex);

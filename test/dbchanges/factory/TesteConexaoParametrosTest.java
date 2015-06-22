@@ -1,7 +1,10 @@
 package dbchanges.factory;
 
+import dbchanges.dal.ProjetosDAO;
+import dbchanges.dtl.ProjetosDTO;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.List;
 import junit.framework.Assert;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -16,30 +19,19 @@ import static org.junit.Assert.*;
  */
 public class TesteConexaoParametrosTest {
 
-    public TesteConexaoParametrosTest() {
-    }
-
-    @BeforeClass
-    public static void setUpClass() {
-    }
-
-    @AfterClass
-    public static void tearDownClass() {
-    }
-
-    @Before
-    public void setUp() {
-    }
-
-    @After
-    public void tearDown() {
-    }
-
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
     @Test
     public void hello() throws SQLException {
+        
+        ProjetosDAO projetoDao = new ProjetosDAO();
+        List<ProjetosDTO> projetos = projetoDao.buscaDadosProjetoParaConexao(1);
+        
+        String usuarioDaConexao = "dbchanges_owner";
+        String senha = "dbchanges";
+        String host = "localhost";
+        Integer porta = 1521;
+        String sid = "orcl";
+        String url = "jdbc:oracle:thin:@" + host + ":" + porta + ":" + sid;
+        
         Connection connection = new ConnectionParameters().getConnection();
         Assert.assertNotNull(connection);
         connection.close();
