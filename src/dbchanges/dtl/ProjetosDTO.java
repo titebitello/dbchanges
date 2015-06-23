@@ -11,6 +11,7 @@ public class ProjetosDTO {
     String host;
     Integer porta;
     String sid;
+    String url;
     
     public Integer getId(){
         return id;
@@ -82,6 +83,14 @@ public class ProjetosDTO {
 
     public void setSid(String sid) {
         this.sid = sid;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 
     @Override

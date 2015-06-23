@@ -4,6 +4,7 @@ import dbchanges.dal.ProjetosDAO;
 import dbchanges.dtl.ProjetosDTO;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import junit.framework.Assert;
 import org.junit.After;
@@ -20,19 +21,18 @@ import static org.junit.Assert.*;
 public class TesteConexaoParametrosTest {
 
     @Test
-    public void hello() throws SQLException {
+    public void TesteConexaoParametrosTest() throws SQLException {
+        ProjetosDTO projetos = new ProjetosDTO();
+        projetos.setUsuarioDaConexao("dbchanges_owner");
+        projetos.setSenha("dbchanges");
+        projetos.setHost("localhost");
+        projetos.setPorta(1521);
+        projetos.setSid("orcl");
+        projetos.setUrl("jdbc:oracle:thin:@" + projetos.getHost() + ":" + projetos.getPorta() + ":" + projetos.getSid());
+        Connection connection = new ConnectionParameters().getConnection(projetos);
         
-        ProjetosDAO projetoDao = new ProjetosDAO();
-        List<ProjetosDTO> projetos = projetoDao.buscaDadosProjetoParaConexao(1);
-        
-        String usuarioDaConexao = "dbchanges_owner";
-        String senha = "dbchanges";
-        String host = "localhost";
-        Integer porta = 1521;
-        String sid = "orcl";
-        String url = "jdbc:oracle:thin:@" + host + ":" + porta + ":" + sid;
-        
-        Connection connection = new ConnectionParameters().getConnection();
+        System.out.println("Conectado!");
+
         Assert.assertNotNull(connection);
         connection.close();
     }
