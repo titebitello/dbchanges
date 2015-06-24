@@ -2,7 +2,7 @@ package dbchanges.dal;
 
 import dbchanges.dtl.HistoricosDTO;
 import dbchanges.dtl.ProjetosDTO;
-import dbchanges.factory.ConnectionFactory;
+import dbchanges.factory.*;
 import dbchanges.dtl.VariaveisDTO;
 import java.sql.*;
 import java.sql.PreparedStatement;
@@ -21,6 +21,8 @@ public class VariaveisDAO {
     String nomeTipoOperacao;
     Integer idTipoObjeto;
     String nomeTipoObjeto;
+    Integer idSubTipoOperacao;
+    String nomeSubTipoOperacao;
     
     public VariaveisDAO() {
         this.connection = new ConnectionFactory().getConnection();
@@ -88,6 +90,24 @@ public class VariaveisDAO {
         return variaveis;
     }
     
+        public List<VariaveisDTO> recuperarTipoAlteracaoComboBox() throws SQLException {
+        List<VariaveisDTO> variaveis = new ArrayList<VariaveisDTO>();
+        String sql = "SELECT * FROM subtipooperacao ORDER BY sto_nome ";
+        Statement statement = this.connection.createStatement();
+        ResultSet resultSet = statement.executeQuery(sql);
+        while (resultSet.next()) {
+            VariaveisDTO variavel = new VariaveisDTO();
+            idSubTipoOperacao = resultSet.getInt("sto_id");
+            nomeSubTipoOperacao = resultSet.getString("sto_nome");
+            variavel.setId(idSubTipoOperacao);
+            variavel.setNomeTipoOperacao(nomeSubTipoOperacao);
+            variaveis.add(variavel);
+        }
+        resultSet.close();
+        statement.close();
+        return variaveis;
+    }
+    
     public List<VariaveisDTO> recuperarTipoObjetoComboBox() throws SQLException {
         List<VariaveisDTO> variaveis = new ArrayList<VariaveisDTO>();
         String sql = "SELECT * FROM tipoobjeto ORDER BY tob_nome ";
@@ -105,5 +125,4 @@ public class VariaveisDAO {
         statement.close();
         return variaveis;
     }
-
 }

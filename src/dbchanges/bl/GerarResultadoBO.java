@@ -36,6 +36,10 @@ public class GerarResultadoBO {
         double tempo = resultado + resultado1 + resultado2 + resultado3 + resultado4 + resultado5
                 + resultado6 + resultado7 + resultado8 + resultado9 + resultado10;
 
+        if(tempo < 0){
+            tempo = tempo * (-1);
+        }
+        
         return (float) tempo;
     }
 }

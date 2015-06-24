@@ -21,6 +21,8 @@ public class VariaveisDTO {
     String nomeTipoOperacao;
     Integer idTipoObjeto;
     String nomeTipoObjeto;
+    Integer idSubTipoOperacao;
+    String nomeSubTipoOperacao;
 
     public Float getTempoEstimado() {
         return tempoEstimado;
@@ -164,6 +166,22 @@ public class VariaveisDTO {
 
     public void setNomeTipoObjeto(String nomeTipoObjeto) {
         this.nomeTipoObjeto = nomeTipoObjeto;
+    }
+
+    public Integer getIdSubTipoOperacao() {
+        return idSubTipoOperacao;
+    }
+
+    public void setIdSubTipoOperacao(Integer idSubTipoOperacao) {
+        this.idSubTipoOperacao = idSubTipoOperacao;
+    }
+
+    public String getNomeSubTipoOperacao() {
+        return nomeSubTipoOperacao;
+    }
+
+    public void setNomeSubTipoOperacao(String nomeSubTipoOperacao) {
+        this.nomeSubTipoOperacao = nomeSubTipoOperacao;
     }
      
    @Override
