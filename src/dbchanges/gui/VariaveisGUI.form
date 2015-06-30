@@ -152,8 +152,7 @@
                               <Component id="btnVoltarVariaveis" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="btnLimparVariaveis" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-                              <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                           </Group>
                           <Component id="jLabel13" alignment="1" min="-2" max="-2" attributes="0"/>
                       </Group>

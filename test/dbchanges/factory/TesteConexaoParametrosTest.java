@@ -29,11 +29,11 @@ public class TesteConexaoParametrosTest {
         projetos.setPorta(1521);
         projetos.setSid("orcl");
         projetos.setUrl("jdbc:oracle:thin:@" + projetos.getHost() + ":" + projetos.getPorta() + ":" + projetos.getSid());
-        Connection connection = new ConnectionParameters().getConnection(projetos);
+        ConnectionParameters connectionParameters = new ConnectionParameters(projetos);
         
         System.out.println("Conectado!");
 
-        Assert.assertNotNull(connection);
-        connection.close();
+        Assert.assertNotNull(connectionParameters);
+        //close(connectionParameters);
     }
 }

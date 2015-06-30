@@ -2,12 +2,15 @@ package dbchanges.gui;
 
 import dbchanges.bl.GerarResultadoBO;
 import dbchanges.bl.MultipleLinearRegressionBO;
+import dbchanges.dal.ConsultaDicionarioDAO;
 import dbchanges.dal.ProjetosDAO;
 import dbchanges.dal.VariaveisDAO;
+import dbchanges.dtl.ConsultaDicionarioDTO;
 import dbchanges.dtl.ProjetosDTO;
 import javax.swing.JOptionPane;
 import dbchanges.dtl.VariaveisDTO;
 import dbchanges.factory.ConnectionParameters;
+import static java.lang.Integer.valueOf;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.text.DecimalFormat;
@@ -445,14 +448,18 @@ public class VariaveisGUI extends javax.swing.JFrame {
         try {
             ProjetosDTO projeto = (ProjetosDTO) jcbProjetoVariavel.getSelectedItem();
             ProjetosDAO projetoDao = new ProjetosDAO();
-            List<ProjetosDTO> projetos = projetoDao.buscaDadosProjetoParaConexao(projeto.getId());
-            for (ProjetosDTO projetoCalc : projetos) {
-                jcbProjetoVariavel.addItem(projeto);
-            }
+            ProjetosDTO projetos = projetoDao.buscaDadosProjetoParaConexao(projeto.getId());
             
-            ConnectionParameters conexao = new ConnectionParameters();
-            Connection resultado = conexao.getConnection(projetos.get(0));
-            //System.out.println(projetoDao);
+            String valor = jtfTabela.getText();
+            
+            ConnectionParameters connectionParameters = new ConnectionParameters(projetos);
+
+            ConsultaDicionarioDAO dicionarioDao = new ConsultaDicionarioDAO(connectionParameters);
+            ConsultaDicionarioDTO dicionario = dicionarioDao.recuperarDadosDicionario(valor);
+            
+            
+            System.out.println(projetoDao);
+            System.out.println(dicionario);
         } catch (SQLException ex) {
             Logger.getLogger(VariaveisGUI.class.getName()).log(Level.SEVERE, null, ex);
         }
