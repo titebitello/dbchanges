@@ -1,5 +1,6 @@
 package dbchanges.bl;
 
+import dbchanges.dtl.ConsultaDicionarioDTO;
 import dbchanges.dtl.VariaveisDTO;
 import static java.lang.String.format;
 import java.util.List;
