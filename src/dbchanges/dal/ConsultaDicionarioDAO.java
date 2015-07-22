@@ -20,12 +20,14 @@ public class ConsultaDicionarioDAO {
     private Integer constraints;
     private Integer indices;
     private Integer triggers;
+    private Integer functions;
+    private Integer views;
 
     public ConsultaDicionarioDAO(ConnectionParameters conexao) {
         this.connection = conexao.getConnection();
     }
 
-    public ConsultaDicionarioDTO recuperarDadosDicionario(String valor) {
+    public ConsultaDicionarioDTO recuperarDadosDicionarioLinhas(String valor) {
         ConsultaDicionarioDTO dicionario = new ConsultaDicionarioDTO();
         try {
             String sql = "SELECT count(1) FROM " + valor;
@@ -43,10 +45,11 @@ public class ConsultaDicionarioDAO {
         return dicionario;
     }
     
-        public ConsultaDicionarioDTO recuperarDadosDicionarioColunas(String valor) {
+        public ConsultaDicionarioDTO recuperarDadosDicionarioColunas(String conexao, String valor) {
         ConsultaDicionarioDTO dicionario1 = new ConsultaDicionarioDTO();
         try {
-            String sql = "select count(1) from USER_TAB_COLUMNS where table_name = '" + valor + "'";
+            //String sql = "select count(1) from sys.all_tab_cols t where t.owner = '" + conexao + "' and t.table_name = '" + valor + "'";
+            String sql = "select count(1) from sys.all_tab_cols t where t.table_name = '" + valor + "'";
             Statement stmt = connection.createStatement();
             ResultSet rs = stmt.executeQuery(sql);
             if (rs.next()) {
@@ -61,10 +64,10 @@ public class ConsultaDicionarioDAO {
         return dicionario1;
     }
 	
-	public ConsultaDicionarioDTO recuperarDadosDicionarioFks(String valor) {
+	public ConsultaDicionarioDTO recuperarDadosDicionarioFks(String conexao, String valor) {
         ConsultaDicionarioDTO dicionario2 = new ConsultaDicionarioDTO();
         try {
-            String sql = "select * from all_constraints where table_name = '" + valor + "' and constraint_type = 'R'";
+            String sql = "select count(1) from sys.all_constraints t where t.table_name = '" + valor + "' and t.constraint_type = 'R'";
             Statement stmt = connection.createStatement();
             ResultSet rs = stmt.executeQuery(sql);
             if (rs.next()) {
@@ -79,10 +82,10 @@ public class ConsultaDicionarioDAO {
         return dicionario2;
     }
 	
-	public ConsultaDicionarioDTO recuperarDadosDicionarioConstraints(String valor) {
+	public ConsultaDicionarioDTO recuperarDadosDicionarioConstraints(String conexao, String valor) {
         ConsultaDicionarioDTO dicionario3 = new ConsultaDicionarioDTO();
         try {
-            String sql = "select count(1) from all_constraints where table_name = '" + valor + "'";
+            String sql = "select count(1) from sys.all_constraints t where t.table_name = '" + valor + "' and t.constraint_type = 'C'";
             Statement stmt = connection.createStatement();
             ResultSet rs = stmt.executeQuery(sql);
             if (rs.next()) {
@@ -97,10 +100,10 @@ public class ConsultaDicionarioDAO {
         return dicionario3;
     }
 	
-	public ConsultaDicionarioDTO recuperarDadosDicionarioIndex(String valor) {
+	public ConsultaDicionarioDTO recuperarDadosDicionarioIndex(String conexao, String valor) {
         ConsultaDicionarioDTO dicionario4 = new ConsultaDicionarioDTO();
         try {
-            String sql = "SELECT count(1) FROM user_objects where object_name like '%" + valor + "' and object_type = 'INDEX'";
+            String sql = "select count(1) qt from sys.all_indexes t where t.table_name = '" + valor + "'";
             Statement stmt = connection.createStatement();
             ResultSet rs = stmt.executeQuery(sql);
             if (rs.next()) {
@@ -115,10 +118,10 @@ public class ConsultaDicionarioDAO {
         return dicionario4;
     }
 	
-	public ConsultaDicionarioDTO recuperarDadosDicionarioTrigger(String valor) {
+    public ConsultaDicionarioDTO recuperarDadosDicionarioTrigger(String conexao, String valor) {
         ConsultaDicionarioDTO dicionario5 = new ConsultaDicionarioDTO();
         try {
-            String sql = "select count(1) from all_triggers where table_name = '" + valor + "'";
+            String sql = "select count(1) from sys.all_dependencies t where t.referenced_name = '" + valor + "' and t.referenced_type = 'TRIGGER'";
             Statement stmt = connection.createStatement();
             ResultSet rs = stmt.executeQuery(sql);
             if (rs.next()) {
@@ -131,5 +134,41 @@ public class ConsultaDicionarioDAO {
             throw new RuntimeException(u);
         }
         return dicionario5;
+    }
+    
+    public ConsultaDicionarioDTO recuperarDadosDicionarioFunction(String conexao, String valor) {
+        ConsultaDicionarioDTO dicionario6 = new ConsultaDicionarioDTO();
+        try {
+            String sql = "select count(1) from sys.all_dependencies t where t.referenced_name = '" + valor + "' and t.referenced_type = 'FUNCTION'";
+            Statement stmt = connection.createStatement();
+            ResultSet rs = stmt.executeQuery(sql);
+            if (rs.next()) {
+            functions = rs.getInt(1);
+            dicionario6.setFunctions(functions);
+            }
+            rs.close();
+            stmt.close();
+        } catch (SQLException u) {
+            throw new RuntimeException(u);
+        }
+        return dicionario6;
+    }
+    
+        public ConsultaDicionarioDTO recuperarDadosDicionarioView(String conexao, String valor) {
+        ConsultaDicionarioDTO dicionario7 = new ConsultaDicionarioDTO();
+        try {
+            String sql = "select count(1) from sys.all_dependencies t where t.referenced_name = '" + valor + "' and t.referenced_type = 'FUNCTION'";
+            Statement stmt = connection.createStatement();
+            ResultSet rs = stmt.executeQuery(sql);
+            if (rs.next()) {
+            views = rs.getInt(1);
+            dicionario7.setViews(views);
+            }
+            rs.close();
+            stmt.close();
+        } catch (SQLException u) {
+            throw new RuntimeException(u);
+        }
+        return dicionario7;
     }
 }

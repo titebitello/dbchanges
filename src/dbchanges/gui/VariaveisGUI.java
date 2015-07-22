@@ -231,7 +231,7 @@ public class VariaveisGUI extends javax.swing.JFrame {
                             .addComponent(jtfFunctions)
                             .addComponent(jtfViews)
                             .addComponent(jtfTabelas))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jtfTabela, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel17, javax.swing.GroupLayout.Alignment.LEADING)
@@ -243,20 +243,16 @@ public class VariaveisGUI extends javax.swing.JFrame {
                     .addComponent(jcbTipoAlteracao, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel18, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jcbProjetoVariavel, javax.swing.GroupLayout.Alignment.LEADING, 0, 110, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnCalcular, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel13)
-                            .addComponent(btnLimparVariaveis, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnVoltarVariaveis, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnCalcularAutomaticamente, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap())))
+                            .addComponent(btnCalcularAutomaticamente, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnCalcular, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jLabel13))
+                    .addComponent(btnLimparVariaveis, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -265,16 +261,17 @@ public class VariaveisGUI extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(11, 11, 11)
                         .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel14)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel2))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnVoltarVariaveis)
                         .addGap(0, 0, 0)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jLabel14)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -287,7 +284,15 @@ public class VariaveisGUI extends javax.swing.JFrame {
                                     .addComponent(jLabel15)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(5, 5, 5)
-                                .addComponent(jLabel3)))
+                                .addComponent(jLabel3))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnLimparVariaveis)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel13)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jtfFks, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel5)
@@ -327,15 +332,9 @@ public class VariaveisGUI extends javax.swing.JFrame {
                                 .addGap(0, 0, 0)
                                 .addComponent(jcbProjetoVariavel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(11, 11, 11)
-                        .addComponent(btnLimparVariaveis)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
-                        .addComponent(jLabel13)
-                        .addGap(0, 0, 0)
                         .addComponent(btnCalcular)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnCalcularAutomaticamente)
-                        .addGap(78, 78, 78))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnCalcularAutomaticamente))))
         );
 
         pack();
@@ -456,17 +455,20 @@ public class VariaveisGUI extends javax.swing.JFrame {
             ProjetosDAO projetoDao = new ProjetosDAO();
             ProjetosDTO projetos = projetoDao.buscaDadosProjetoParaConexao(projeto.getId());
 
+            String conexao = projeto.getUsuarioDaConexao();
             String valor = jtfTabela.getText();
 
             ConnectionParameters connectionParameters = new ConnectionParameters(projetos);
 
             ConsultaDicionarioDAO dicionarioDao = new ConsultaDicionarioDAO(connectionParameters);
-            ConsultaDicionarioDTO dicionario = dicionarioDao.recuperarDadosDicionario(valor);
-            ConsultaDicionarioDTO dicionario1 = dicionarioDao.recuperarDadosDicionarioColunas(valor);
-            ConsultaDicionarioDTO dicionario2 = dicionarioDao.recuperarDadosDicionarioFks(valor);
-            ConsultaDicionarioDTO dicionario3 = dicionarioDao.recuperarDadosDicionarioConstraints(valor);
-            ConsultaDicionarioDTO dicionario4 = dicionarioDao.recuperarDadosDicionarioIndex(valor);
-            ConsultaDicionarioDTO dicionario5 = dicionarioDao.recuperarDadosDicionarioTrigger(valor);
+            ConsultaDicionarioDTO dicionario = dicionarioDao.recuperarDadosDicionarioLinhas(valor);
+            ConsultaDicionarioDTO dicionario1 = dicionarioDao.recuperarDadosDicionarioColunas(conexao, valor);
+            ConsultaDicionarioDTO dicionario2 = dicionarioDao.recuperarDadosDicionarioFks(conexao, valor);
+            ConsultaDicionarioDTO dicionario3 = dicionarioDao.recuperarDadosDicionarioConstraints(conexao, valor);
+            ConsultaDicionarioDTO dicionario4 = dicionarioDao.recuperarDadosDicionarioIndex(conexao, valor);
+            ConsultaDicionarioDTO dicionario5 = dicionarioDao.recuperarDadosDicionarioTrigger(conexao, valor);
+            ConsultaDicionarioDTO dicionario6 = dicionarioDao.recuperarDadosDicionarioFunction(conexao, valor);
+            ConsultaDicionarioDTO dicionario7 = dicionarioDao.recuperarDadosDicionarioView(conexao, valor);
             //System.out.println(projetoDao);
             //jtfColunas.setText("" + dicionario.getLinhas());
             jtfLinhas.setText(String.valueOf(dicionario.getLinhas()));
@@ -475,8 +477,8 @@ public class VariaveisGUI extends javax.swing.JFrame {
             jtfConstraints.setText(String.valueOf(dicionario3.getConstraints()));
             jtfIndices.setText(String.valueOf(dicionario4.getIndices()));
             jtfTriggers.setText(String.valueOf(dicionario5.getTriggers()));
-            //jtfFunctions.setText(String.valueOf(dicionario.getFunctions()));
-            //jtfViews.setText(String.valueOf(dicionario.getViews()));
+            jtfFunctions.setText(String.valueOf(dicionario6.getFunctions()));
+            jtfViews.setText(String.valueOf(dicionario7.getViews()));
             //jtfTabelas.setText("0");
             //System.out.println(dicionario);
         } catch (SQLException ex) {
